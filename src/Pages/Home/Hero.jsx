@@ -103,36 +103,67 @@ export default function Hero() {
         <section
             id="home--hero"
             ref={sectionContainerRef}
-            className="relative h-[90vh] w-full flex flex-col gap-2 lg:flex-row pb-4 xl:h-screen"
+            className="container relative grid h-screen w-full place-items-center"
         >
             {/* TEXT CONTENT */}
-            <div ref={textContainerRef} className="content-container">
+            <div
+                ref={textContainerRef}
+                className="flex flex-col items-center text-center"
+            >
                 {/* TITLE */}
                 <h1 className="">
                     Hello, <br /> I&apos;m Jonas
                 </h1>
                 {/* SUBTITLE */}
-                <p className="md:text-lg lg:text-lg xl:text-2xl mt-2">
-                    A frontend developer combining a love for design with
+                <p className="mt-2">
+                    A frontend developer combining a love for design with <br />
                     technical expertise to build engaging, user-centric web
-                    solutions. Check out my portfolio to see my work in action.
+                    solutions. <br /> Check out my portfolio to see my work in
+                    action.
                 </p>
                 <div ref={buttonsContainerRef} className="footer mt-6 flex">
                     {/* CTAS */}
-                    <ButtonWithIcon variant="rose">Portfolio</ButtonWithIcon>
+                    <ButtonWithIcon variant="">Portfolio</ButtonWithIcon>
                     <ButtonWithIcon variant="ghost">About me</ButtonWithIcon>
                 </div>
             </div>
-            {/* VIDEO CONTAINER */}
-            <div ref={videoContainerRef} className="media-container">
-                <video
-                    src="/videos/hero-video.mov"
-                    autoPlay={true}
-                    muted={true}
-                    loop={true}
-                    className="video"
-                ></video>
-            </div>
         </section>
+        // <section
+        //     id="home--hero"
+        //     ref={sectionContainerRef}
+        //     className="relative flex h-[90vh] w-full flex-col gap-2 pb-2 lg:flex-row xl:h-screen xl:pb-4"
+        // >
+        //     {/* TEXT CONTENT */}
+        //     <div ref={textContainerRef} className="content-container">
+        //         {/* TITLE */}
+        //         <h1 className="">
+        //             Hello, <br /> I&apos;m Jonas
+        //         </h1>
+        //         {/* SUBTITLE */}
+        //         <p className="mt-2">
+        //             A frontend developer combining a love for design with
+        //             technical expertise to build engaging, user-centric web
+        //             solutions. Check out my portfolio to see my work in action.
+        //         </p>
+        //         <div ref={buttonsContainerRef} className="footer mt-6 flex">
+        //             {/* CTAS */}
+        //             <ButtonWithIcon variant="">Portfolio</ButtonWithIcon>
+        //             <ButtonWithIcon variant="ghost">About me</ButtonWithIcon>
+        //         </div>
+        //     </div>
+        //     {/* VIDEO CONTAINER */}
+        //     <div
+        //         ref={videoContainerRef}
+        //         className="media-container xl:max-w-[60%]"
+        //     >
+        //         <video
+        //             src="/videos/preview1.mov"
+        //             autoPlay={true}
+        //             muted={true}
+        //             loop={true}
+        //             className="video"
+        //         ></video>
+        //     </div>
+        // </section>
     )
 }

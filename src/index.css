@@ -1,11 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 @layer base {
-    :root {
-    }
-
     * {
         box-sizing: border-box;
         margin: 0;
@@ -37,7 +34,7 @@
     }
 
     h1 {
-        @apply font-space text-5xl font-medium lg:text-6xl xl:text-8xl 2xl:text-9xl;
+        @apply text-5xl font-medium drop-shadow-lg lg:text-6xl xl:text-8xl;
     }
 
     p {
@@ -46,11 +43,27 @@
 }
 
 @layer utilities {
-    .bg-radial-gradient-b-teal {
+    .radial-gradient-1 {
         background: radial-gradient(
-            ellipse at bottom,
-            rgb(16, 102, 92, 1) 0%,
-            rgb(29, 29, 29, 0) 100%
+            circle at center,
+            theme(colors.neutral.950 / 0%) 0%,
+            theme(colors.neutral.950 / 100%) 100%
+        );
+    }
+
+    .radial-gradient-2 {
+        background: radial-gradient(
+            ellipse at center,
+            theme(colors.violet.500 / 70%) 0%,
+            theme(colors.neutral.950 / 100%) 100%
+        );
+    }
+
+    .radial-gradient-3 {
+        background: radial-gradient(
+            ellipse at center,
+            theme(colors.teal.500 / 70%) 0%,
+            theme(colors.neutral.950 / 100%) 100%
         );
     }
 
@@ -89,22 +102,23 @@
     }
 
     .content-container {
-        @apply flex-1 bg-radial-gradient-b-teal elevation-5 relative flex flex-col items-start justify-center overflow-hidden rounded-3xl border border-neutral-800 p-8 before:absolute inset-0 -z-10 backdrop-blur-sm md:p-10 lg:p-12 xl:p-14;
+        /* @apply radial-gradient-2 elevation-5 relative flex grow flex-col items-start justify-center overflow-hidden rounded-3xl border border-neutral-800 p-8 before:absolute before:inset-0 before:-z-10 md:p-10 lg:p-12 xl:p-14; */
+        @apply relative flex grow flex-col items-center justify-center overflow-hidden p-8 before:absolute before:inset-0 before:-z-10 md:p-10 lg:p-12 xl:p-14;
 
         .title {
             @apply text-sm;
         }
         .subtitle {
-            @apply font-space text-4xl font-medium lg:text-5xl mt-1;
+            @apply mt-1 text-4xl font-medium lg:text-5xl;
         }
     }
 
     .media-container {
-        @apply elevation-5 overflow-hidden rounded-3xl flex-1 opacity-85;
+        @apply elevation-5 grow overflow-hidden rounded-3xl opacity-85 lg:max-w-[40%];
 
         .video,
         .img {
-            @apply w-full h-full object-cover;
+            @apply h-full w-full object-cover;
         }
     }
 }

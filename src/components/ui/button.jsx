@@ -9,14 +9,14 @@ const buttonVariants = cva(
     {
         variants: {
             variant: {
-                default: 'bg-indigo-600',
-                rose: 'bg-rose-500',
-                teal: 'bg-teal-500',
+                default: 'elevation-3 bg-indigo-600',
+                rose: 'elevation-3 bg-rose-500',
+                teal: 'elevation-3 bg-teal-500',
                 ghost: '',
             },
             size: {
                 default:
-                    'px-6 py-3 md:px-8 md:py-4 lg:px-12 lg:py-5 lg:text-lg',
+                    'px-8 py-4 md:px-10 md:py-5 lg:px-12 lg:py-5 lg:text-lg',
                 sm: 'p-3',
                 lg: 'p-8',
                 icon: 'h-10 w-10',

@@ -103,7 +103,7 @@ export default function Hero() {
         <section
             id="home--contact"
             ref={sectionContainerRef}
-            className="relative h-[90vh] w-full flex flex-col gap-2 lg:flex-row pb-4 xl:h-screen"
+            className="relative flex h-[85vh] w-full flex-col gap-2 lg:flex-row lg:pt-4"
         >
             {/* TEXT CONTENT */}
             <div ref={textContainerRef} className="content-container">
@@ -112,9 +112,9 @@ export default function Hero() {
                     Let's Work <br /> Together
                 </h1>
                 {/* SUBTITLE */}
-                <p className="md:text-lg lg:text-lg xl:text-2xl mt-2">
-                    I'm excited to work on new projects and challenges. Let's
-                    talk about how I can help.
+                <p className="mt-2 md:text-lg lg:text-lg xl:text-2xl">
+                    I'm excited to work on new projects and challenges. <br />
+                    Let's talk about how I can help.
                 </p>
                 <div ref={buttonsContainerRef} className="footer mt-6 flex">
                     {/* CTAS */}
@@ -123,7 +123,10 @@ export default function Hero() {
                 </div>
             </div>
             {/* VIDEO CONTAINER */}
-            <div ref={videoContainerRef} className="media-container">
+            <div
+                ref={videoContainerRef}
+                className="media-container xl:max-w-[60%]"
+            >
                 <video
                     src="/videos/contact-video.mov"
                     autoPlay={true}

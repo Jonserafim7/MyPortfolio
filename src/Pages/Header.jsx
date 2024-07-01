@@ -1,14 +1,15 @@
 export default function Nav() {
     return (
-        <header className="sticky top-2 z-50 flex w-full h-[10vh] py-2 xl:w-[12rem] xl:h-screen xl:p-0 xl:pr-2 xl:pb-4">
-            <nav className="shadow-3xl flex w-full items-center justify-between rounded-3xl border border-neutral-800 px-5 before:absolute overflow-hidden before:backdrop-blur relative before:-z-10 before:inset-0 xl:flex-col xl:p-0 xl:py-10 ">
+        <header className="sticky top-0 z-50 flex h-[10vh] w-full p-2 xl:h-screen xl:w-[8rem]">
+            {/* <header className="sticky top-0 z-50 flex h-[10vh] w-full p-2 xl:h-screen xl:w-[10rem]"> */}
+            <nav className="relative flex w-full items-center justify-between overflow-hidden rounded-3xl border border-neutral-800 px-5 shadow-3xl before:absolute before:inset-0 before:-z-10 before:backdrop-blur xl:flex-col xl:p-0 xl:py-10">
                 {/* LOGO */}
-                <div className="font-space text-xl font-bold bg-indigo-400 px-4 py-1 xl:p-4 rounded-2xl xl:text-2xl">
-                    J
+                <div className="rounded-2xl bg-teal-500 px-4 py-1 text-xl font-bold xl:p-4 xl:text-2xl">
+                    <span className="drop-shadow-md">J</span>
                 </div>
 
                 {/* nav links for lg screen sizes*/}
-                <ul className="hidden items-center lg:flex justify-center gap-20 xl:vertical-text">
+                <ul className="xl:vertical-text hidden items-center justify-center gap-20 text-sm lg:flex">
                     <li>
                         <a href="#" className="transform">
                             About me
@@ -23,7 +24,7 @@ export default function Nav() {
                 </ul>
 
                 {/* social icons */}
-                <div className="hidden lg:flex items-center justify-center gap-2 text-neutral-500 xl:flex-col">
+                <div className="hidden items-center justify-center gap-2 text-neutral-500 lg:flex xl:flex-col">
                     <svg
                         className="h-auto w-8 cursor-pointer lg:w-10"
                         xmlns="http://www.w3.org/2000/svg"

@@ -19,7 +19,7 @@ export default function Tools() {
     const toolsElements = toolsArray.map((tool, index) => (
         <div
             key={index}
-            className="flex w-max translate-x-[5%] transform font-space text-[100px] font-bold leading-none text-neutral-300 drop-shadow-xl lg:text-[200px] xl:text-[300px]"
+            className="flex w-max translate-x-[5%] transform text-[100px] font-bold leading-none text-neutral-300 drop-shadow-xl lg:text-[200px] xl:text-[300px]"
         >
             {tool}
         </div>
@@ -80,15 +80,15 @@ export default function Tools() {
                 ref={titleContaineRef}
                 className="flex items-center justify-center gap-8"
             >
-                <p className="mt-2 font-space text-lg max-w-[80%] lg:text-2xl text-center">
-                    Discover the technologies that drive my work.
+                <p className="mt-2 text-center text-lg lg:text-2xl">
+                    Discover the technologies <br /> that drive my work.
                 </p>
             </div>
 
             {/* TOOLS */}
             <div
                 ref={toolsContainerRef}
-                className="relative mt-40 flex flex-col items-center"
+                className="relative mt-20 flex flex-col items-center"
             >
                 {toolsElements}
             </div>

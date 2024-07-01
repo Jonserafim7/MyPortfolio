@@ -15,7 +15,6 @@ module.exports = {
             lg: '960px',
             xl: '1295px',
             '2xl': '1440px',
-            '3xl': '1920px',
         },
         fontFamily: {
             roboto: ['Roboto', 'sans-serif'],
@@ -23,7 +22,6 @@ module.exports = {
         },
         container: {
             center: true,
-            padding: '0.5rem',
             screens: {
                 '2xl': '1400px',
             },

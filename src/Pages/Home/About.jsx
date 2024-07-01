@@ -98,10 +98,13 @@ export default function About() {
         <section
             ref={sectionContainerRef}
             id="home--about"
-            className="flex w-full flex-col gap-2 lg:flex-row"
+            className="container flex w-full flex-col gap-2 lg:flex-row"
         >
             {/* VIDEO */}
-            <div ref={videoContainerRef} className="media-container">
+            <div
+                ref={videoContainerRef}
+                className="media-container lg:max-w-[40%]"
+            >
                 <video
                     src="/videos/about-video.mov"
                     autoPlay={true}
@@ -127,8 +130,8 @@ export default function About() {
                     and React, I'm dedicated to transforming ideas into stunning
                     realities.
                 </p>
-                <div ref={buttonContainerRef} className="flex mt-6">
-                    <ButtonWithIcon type="">Learn more</ButtonWithIcon>
+                <div ref={buttonContainerRef} className="mt-6 flex">
+                    <ButtonWithIcon variant="">Learn more</ButtonWithIcon>
                 </div>
             </div>
         </section>

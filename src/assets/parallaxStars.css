@@ -1,64 +1,68 @@
 .stars-container {
-  position: relative;
-  height: 100%;
-  width: 100%;
-  overflow: hidden;
-  background: radial-gradient(ellipse at bottom, #312e81 0%, #090a0f 100%);
+    position: relative;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background: radial-gradient(
+        circle at bottom,
+        theme(colors.indigo.500 / 100%) 0%,
+        theme(colors.neutral.950 / 100%) 90%
+    );
 }
 
 #stars1 {
-  width: 1px;
-  height: 1px;
-  background: transparent;
-  animation: animStar 50s linear infinite;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    animation: animStar 50s linear infinite;
 }
 
 #stars1:after {
-  content: " ";
-  position: absolute;
-  top: 2000px;
-  width: 1px;
-  height: 1px;
-  background: transparent;
+    content: ' ';
+    position: absolute;
+    top: 2000px;
+    width: 1px;
+    height: 1px;
+    background: transparent;
 }
 
 #stars2 {
-  width: 2px;
-  height: 2px;
-  background: transparent;
-  animation: animStar 100s linear infinite;
+    width: 2px;
+    height: 2px;
+    background: transparent;
+    animation: animStar 100s linear infinite;
 }
 
 #stars2:after {
-  content: " ";
-  position: absolute;
-  top: 2000px;
-  width: 2px;
-  height: 2px;
-  background: transparent;
+    content: ' ';
+    position: absolute;
+    top: 2000px;
+    width: 2px;
+    height: 2px;
+    background: transparent;
 }
 
 #stars3 {
-  width: 3px;
-  height: 3px;
-  background: transparent;
-  animation: animStar 150s linear infinite;
+    width: 3px;
+    height: 3px;
+    background: transparent;
+    animation: animStar 150s linear infinite;
 }
 
 #stars3:after {
-  content: " ";
-  position: absolute;
-  top: 2000px;
-  width: 3px;
-  height: 3px;
-  background: transparent;
+    content: ' ';
+    position: absolute;
+    top: 2000px;
+    width: 3px;
+    height: 3px;
+    background: transparent;
 }
 
 @keyframes animStar {
-  from {
-    transform: translateY(0px);
-  }
-  to {
-    transform: translateY(-2000px);
-  }
+    from {
+        transform: translateY(0px);
+    }
+    to {
+        transform: translateY(-2000px);
+    }
 }
