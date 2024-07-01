@@ -1,25 +1,24 @@
-// This component is the layout for the app,
-//it includes the header, footer and the main content of the app.
-//The main content is rendered using the Outlet component from react-router-dom.
-//The layout component is used in the App component to wrap the entire app.
-
-import ParallaxStars from "../assets/ParallaxStars";
-import Header from "./Header";
-import { Outlet } from "react-router-dom";
-import Footer from "./Footer";
+import ParallaxStars from '../assets/ParallaxStars'
+import Header from './Header'
+import { Outlet } from 'react-router-dom'
+import Footer from './Footer'
 
 export default function Layout() {
-  return (
-    <div className="layout relative flex flex-col p-2">
-      <ParallaxStars />
+    return (
+        <div className="layout">
+            <ParallaxStars />
 
-      <Header />
+            <div className="p-2 flex flex-col xl:flex-row">
+                <Header />
 
-      <main className="container border">
-        <Outlet />
-      </main>
+                <div className="flex flex-col">
+                    <main>
+                        <Outlet />
+                    </main>
 
-      <Footer />
-    </div>
-  );
+                    <Footer />
+                </div>
+            </div>
+        </div>
+    )
 }
