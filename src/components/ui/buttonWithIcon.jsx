@@ -1,12 +1,12 @@
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(useGSAP)
 
-export function ButtonWithIcon({ children, variant, size, ...props }) {
+const ButtonWithIcon = React.forwardRef(({ children, size, variant }, ref) => {
     const containerRef = useRef(null)
 
     useGSAP(
@@ -92,17 +92,17 @@ export function ButtonWithIcon({ children, variant, size, ...props }) {
     return (
         <Button
             ref={containerRef}
-            className="flex items-center gap-2 relative overflow-hidden"
+            className="relative flex items-center gap-2 overflow-hidden"
             size={size || 'default'}
             variant={variant || 'default'}
         >
             {/* TEXT */}
-            <div className="flex flex-col relative overflow-hidden z-10">
+            <div className="relative z-10 flex flex-col overflow-hidden">
                 <div>{children}</div>
                 <div className="absolute translate-y-full">{children}</div>
             </div>
             {/* ICON */}
-            <ArrowRight className="w-[1.2em] h-[1.2em] absolute right-[10%] z-10" />
+            <ArrowRight className="absolute right-[10%] z-10 h-[1.2em] w-[1.2em]" />
             {/* BACKGROUND */}
             {variant != 'ghost' && (
                 <div
@@ -111,4 +111,8 @@ export function ButtonWithIcon({ children, variant, size, ...props }) {
             )}
         </Button>
     )
-}
+})
+
+ButtonWithIcon.displayName = 'ButtonIcon'
+
+export { ButtonWithIcon }
