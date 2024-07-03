@@ -13,7 +13,6 @@ export default function Portfolio() {
     const sectionContainerRef = useRef(null)
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
-    const paragraphRef = useRef(null)
     const overlayRef = useRef(null)
     const buttonRef = useRef(null)
     const lineTopRef = useRef(null)
@@ -50,14 +49,6 @@ export default function Portfolio() {
                     subtitleRef.current,
                     {
                         yPercent: 140,
-                        opacity: 0,
-                    },
-                    '-=1.2'
-                )
-                .from(
-                    paragraphRef.current,
-                    {
-                        yPercent: 210,
                         opacity: 0,
                     },
                     '-=1.2'
@@ -101,19 +92,13 @@ export default function Portfolio() {
     )
 
     return (
-        <section className="flex w-full flex-col">
+        <section className="flex w-full flex-col overflow-hidden">
             {/* HEADING */}
             <div
                 ref={sectionContainerRef}
                 className="relative grid h-screen w-full place-content-center overflow-hidden"
             >
                 <div className="container flex items-center justify-center gap-20">
-                    <div className="overflow-hidden">
-                        <h3 ref={paragraphRef} className="text-base xl:text-lg">
-                            A Showcase of my most recent work.
-                        </h3>
-                    </div>
-
                     <div className="overflow-hidden py-2">
                         <h2 className="flex flex-col text-8xl">
                             {/* <span className="text-sm">The</span> */}
@@ -122,7 +107,7 @@ export default function Portfolio() {
                             </span>
                             <span
                                 ref={subtitleRef}
-                                className="font-roboto text-4xl italic text-teal-400"
+                                className="ml-auto font-roboto text-4xl italic text-teal-400"
                             >
                                 projects
                             </span>
@@ -132,10 +117,12 @@ export default function Portfolio() {
 
                 <div
                     ref={overlayRef}
-                    className="absolute left-1/2 top-0 z-10 flex translate-x-[-50%] flex-col font-space text-[28rem] font-bold uppercase leading-none text-indigo-200 opacity-10"
+                    className="absolute left-1/2 top-0 z-10 flex translate-x-[-50%] flex-col font-mont text-[28rem] font-bold uppercase leading-none text-indigo-200 opacity-10"
                 >
-                    <span className="">Port</span>
-                    <span className="leading-[0.6]">folio</span>
+                    <span className="translate-x-[-10%]">Port</span>
+                    <span className="translate-x-[0%] leading-[0.6]">
+                        folio
+                    </span>
                 </div>
 
                 <div

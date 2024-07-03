@@ -19,7 +19,7 @@ export default function Home() {
     // gsap animations
     useGSAP(() => {}, { scope: homeRef })
     return (
-        <div ref={homeRef} className="home grid h-full w-full">
+        <div ref={homeRef} className="home grid h-full w-full overflow-hidden">
             <Hero />
             <About />
             <Portfolio />

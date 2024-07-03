@@ -31,16 +31,32 @@ export default function Hero() {
                     // markers: true,
                 },
                 defaults: {
-                    ease: 'power4.out',
-                    duration: 1,
+                    // ease: 'power4.out',
+                    ease: 'elastic.out(1, 1.5)',
+                    duration: 1.5,
                 },
             })
 
-            tl.from(headingSplit.words, {
+            tl.from(headingSplit.words[0], {
                 xPercent: 100,
                 opacity: 0,
-                stagger: 0.2,
             })
+                .from(
+                    headingSplit.words[1],
+                    {
+                        xPercent: -100,
+                        opacity: 0,
+                    },
+                    '-=1.2'
+                )
+                .from(
+                    headingSplit.words[2],
+                    {
+                        yPercent: 100,
+                        opacity: 0,
+                    },
+                    '-=1.2'
+                )
                 .from(
                     paragraphSplit.lines,
                     {
@@ -48,7 +64,7 @@ export default function Hero() {
                         opacity: 0,
                         stagger: 0.2,
                     },
-                    '-=0.8'
+                    '-=1.2'
                 )
                 .from(
                     ctasRef.current.children[0],
@@ -56,7 +72,7 @@ export default function Hero() {
                         xPercent: -150,
                         opacity: 0,
                     },
-                    '-=0.8'
+                    '-=1.2'
                 )
                 .from(
                     ctasRef.current.children[1],
@@ -64,7 +80,7 @@ export default function Hero() {
                         xPercent: 150,
                         opacity: 0,
                     },
-                    '-=0.8'
+                    '-=1.2'
                 )
         },
         { scope: sectionContainerRef }
@@ -82,11 +98,15 @@ export default function Hero() {
                     <div className="overflow-hidden">
                         <h1
                             ref={headingRef}
-                            className="flex flex-col uppercase"
+                            className="flex flex-col font-mont uppercase"
                         >
-                            <span className="">Frontend</span>
-                            <span className="">Developer</span>
-                            <span className="">Portfolio</span>
+                            <span className="font-light text-neutral-200">
+                                Frontend
+                            </span>
+                            <span className="font-light text-neutral-200">
+                                Developer
+                            </span>
+                            <span className="font-black">Portfolio</span>
                         </h1>
                     </div>
                     <div className="overflow-hidden">

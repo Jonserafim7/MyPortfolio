@@ -101,7 +101,7 @@ export default function About() {
     return (
         <section
             ref={sectionContainerRef}
-            className="relative grid h-screen w-full place-content-center"
+            className="relative grid h-screen w-full place-content-center overflow-hidden"
         >
             <div className="container grid grid-cols-2 gap-20">
                 <aside className="flex flex-col items-end justify-center text-right">
@@ -146,7 +146,7 @@ export default function About() {
 
             <span
                 ref={overlayRef}
-                className="absolute left-1/2 top-0 z-10 translate-x-[-50%] font-space text-[28rem] font-bold uppercase leading-none text-indigo-200 opacity-10"
+                className="absolute left-1/2 top-0 z-10 translate-x-[-50%] font-mont text-[28rem] font-bold uppercase leading-none text-indigo-200 opacity-10"
             >
                 About
             </span>
