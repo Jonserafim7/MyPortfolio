@@ -41,6 +41,10 @@ module.exports = {
             boxShadow: {
                 '3xl': '0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3)',
             },
+            backgroundImage: {
+                'gradient-radial':
+                    'radial-gradient(circle at center,rgb(10 10 10 / 0) 0%,rgb(10, 10, 10, 0.5) 100%)',
+            },
             keyframes: {
                 'accordion-down': {
                     from: { height: '0' },

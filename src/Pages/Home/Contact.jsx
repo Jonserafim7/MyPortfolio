@@ -81,7 +81,7 @@ export default function Contact() {
                 <div className="relative flex flex-col items-center justify-center text-center">
                     <h2 ref={headingRef} className="flex flex-col uppercase">
                         <span className="">Let's Work</span>
-                        <span className="">Together</span>
+                        <span className="font-black">Together</span>
                     </h2>
                     <p ref={paragraphRef} className="mt-2">
                         I'm excited to work on new projects and challenges.{' '}

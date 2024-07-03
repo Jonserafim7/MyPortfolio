@@ -38,6 +38,13 @@ const ButtonWithIcon = React.forwardRef(({ children, size, variant }, ref) => {
                 },
             })
                 .to(
+                    containerRef.current.children[0],
+                    {
+                        xPercent: -10,
+                    },
+                    '<'
+                )
+                .to(
                     buttonText,
                     {
                         yPercent: -100,
@@ -98,8 +105,12 @@ const ButtonWithIcon = React.forwardRef(({ children, size, variant }, ref) => {
         >
             {/* TEXT */}
             <div className="relative z-10 flex flex-col overflow-hidden">
-                <div>{children}</div>
-                <div className="absolute translate-y-full">{children}</div>
+                <div className="flex items-center justify-center gap-2">
+                    {children}
+                </div>
+                <div className="absolute flex translate-y-full items-center justify-center gap-2">
+                    {children}
+                </div>
             </div>
             {/* ICON */}
             <ArrowRight className="absolute right-[10%] z-10 h-[1.2em] w-[1.2em]" />

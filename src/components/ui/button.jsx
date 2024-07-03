@@ -11,13 +11,13 @@ const buttonVariants = cva(
             variant: {
                 default: 'bg-indigo-500 hover:shadow-3xl',
                 rose: 'bg-rose-500 hover:shadow-3xl',
-                teal: 'bg-teal-500 hover:shadow-3xl',
+                teal: 'bg-teal-500 text-teal-950 hover:shadow-3xl',
                 ghost: '',
             },
             size: {
                 default: 'h-max px-8 py-4 md:px-10 md:py-5 md:text-lg',
-                sm: 'h-max px-8 py-4 text-sm',
-                lg: 'p-8',
+                sm: 'h-max px-8 py-3 text-base',
+                md: 'h-max px-10 py-4 text-base',
                 icon: 'h-10 w-10',
             },
         },

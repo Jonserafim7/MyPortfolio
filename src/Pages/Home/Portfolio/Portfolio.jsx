@@ -139,9 +139,7 @@ export default function Portfolio() {
             {/* CTA */}
             <div className="mt-20 grid w-full place-content-center overflow-hidden">
                 <div ref={buttonRef}>
-                    <ButtonWithIcon variant="">
-                        View all projects
-                    </ButtonWithIcon>
+                    <ButtonWithIcon variant="teal">View all</ButtonWithIcon>
                 </div>
             </div>
         </section>
