@@ -69,7 +69,8 @@ export default function Hero() {
                 .from(
                     ctasRef.current.children[0],
                     {
-                        xPercent: -150,
+                        // xPercent: -150,
+                        scale: 0,
                         opacity: 0,
                     },
                     '-=1.2'
@@ -77,8 +78,9 @@ export default function Hero() {
                 .from(
                     ctasRef.current.children[1],
                     {
-                        xPercent: 150,
+                        // xPercent: 150,
                         opacity: 0,
+                        scale: 0,
                     },
                     '-=1.2'
                 )

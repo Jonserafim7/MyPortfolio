@@ -1,5 +1,6 @@
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 import { ProjectCard } from './ProjectCard'
+import { projectsData } from './projectsData'
 
 export default function ProjectsGrid() {
     // REFS
@@ -11,63 +12,8 @@ export default function ProjectsGrid() {
     const card5Ref = useRef(null)
     const card6Ref = useRef(null)
 
-    // PROJECTS DATA
-    const projectsData = [
-        {
-            title: 'Vanlife',
-            type: 'Website',
-            scope: 'UI/UX',
-            badges: ['HTML', 'CSS', 'JS', 'React'],
-            description:
-                'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero ad quos temporibus omnis neque, dolorem eaque corrupti similique incidunt eius a, molestiae, aut in excepturi fugiat pariatur illum fuga assumenda.',
-            img: '/imgs/vanlife.png',
-        },
-        {
-            title: 'Vanlife',
-            type: 'Website',
-            scope: 'UI/UX',
-            badges: ['HTML', 'CSS', 'JS', 'React'],
-            description:
-                'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero ad quos temporibus omnis neque, dolorem eaque corrupti similique incidunt eius a, molestiae, aut in excepturi fugiat pariatur illum fuga assumenda.',
-            img: '/imgs/vanlife.png',
-        },
-        {
-            title: 'Vanlife',
-            type: 'Website',
-            scope: 'UI/UX',
-            badges: ['HTML', 'CSS', 'JS', 'React'],
-            description:
-                'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero ad quos temporibus omnis neque, dolorem eaque corrupti similique incidunt eius a, molestiae, aut in excepturi fugiat pariatur illum fuga assumenda.',
-            img: '/imgs/vanlife.png',
-        },
-        {
-            title: 'Vanlife',
-            type: 'Website',
-            scope: 'UI/UX',
-            badges: ['HTML', 'CSS', 'JS', 'React'],
-            description:
-                'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero ad quos temporibus omnis neque, dolorem eaque corrupti similique incidunt eius a, molestiae, aut in excepturi fugiat pariatur illum fuga assumenda.',
-            img: '/imgs/vanlife.png',
-        },
-        {
-            title: 'Vanlife',
-            type: 'Website',
-            scope: 'UI/UX',
-            badges: ['HTML', 'CSS', 'JS', 'React'],
-            description:
-                'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero ad quos temporibus omnis neque, dolorem eaque corrupti similique incidunt eius a, molestiae, aut in excepturi fugiat pariatur illum fuga assumenda.',
-            img: '/imgs/vanlife.png',
-        },
-        {
-            title: 'Vanlife',
-            type: 'Website',
-            scope: 'UI/UX',
-            badges: ['HTML', 'CSS', 'JS', 'React'],
-            description:
-                'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Vero ad quos temporibus omnis neque, dolorem eaque corrupti similique incidunt eius a, molestiae, aut in excepturi fugiat pariatur illum fuga assumenda.',
-            img: '/imgs/vanlife.png',
-        },
-    ]
+    // STATE
+    const [projects, setProjects] = useState(projectsData)
 
     // JSX
     return (
@@ -76,32 +22,44 @@ export default function ProjectsGrid() {
             className="relative grid h-full w-full gap-2 overflow-hidden rounded-3xl shadow-xl"
         >
             <div className="flex gap-2">
-                <ProjectCard
-                    ref={card1Ref}
-                    project={projectsData[0]}
-                    className="grow-[1.5]"
-                />
-                <ProjectCard ref={card2Ref} project={projectsData[1]} />
+                {projects[0] && (
+                    <ProjectCard
+                        ref={card1Ref}
+                        project={projects[0]}
+                        className="grow-[1.3]"
+                    />
+                )}
+                {projects[1] && (
+                    <ProjectCard ref={card2Ref} project={projects[1]} />
+                )}
             </div>
             <div className="flex gap-2">
-                <ProjectCard
-                    ref={card3Ref}
-                    project={projectsData[0]}
-                    className="grow-[1]"
-                />
-                <ProjectCard
-                    ref={card4Ref}
-                    project={projectsData[1]}
-                    className="grow-[2]"
-                />
+                {projects[2] && (
+                    <ProjectCard
+                        ref={card3Ref}
+                        project={projects[2]}
+                        className="grow-[1]"
+                    />
+                )}
+                {projects[3] && (
+                    <ProjectCard
+                        ref={card4Ref}
+                        project={projects[3]}
+                        className="grow-[1.2]"
+                    />
+                )}
             </div>
             <div className="flex gap-2">
-                <ProjectCard
-                    ref={card5Ref}
-                    project={projectsData[0]}
-                    className="grow-[1]"
-                />
-                <ProjectCard ref={card6Ref} project={projectsData[1]} />
+                {projects[4] && (
+                    <ProjectCard
+                        ref={card5Ref}
+                        project={projects[4]}
+                        className="grow-[1]"
+                    />
+                )}
+                {projects[5] && (
+                    <ProjectCard ref={card6Ref} project={projects[5]} />
+                )}
             </div>
         </div>
     )

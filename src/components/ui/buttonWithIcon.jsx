@@ -116,9 +116,7 @@ const ButtonWithIcon = React.forwardRef(({ children, size, variant }, ref) => {
             <ArrowRight className="absolute right-[10%] z-10 h-[1.2em] w-[1.2em]" />
             {/* BACKGROUND */}
             {variant != 'ghost' && (
-                <div
-                    className={`absolute inset-0 scale-y-0 rounded-full`}
-                ></div>
+                <div className={`absolute inset-0 scale-y-0`}></div>
             )}
         </Button>
     )
