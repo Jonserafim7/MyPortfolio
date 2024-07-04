@@ -131,7 +131,7 @@ export default function Portfolio() {
             </div>
 
             {/* PROJECTS */}
-            <div className="container mt-20 w-full">
+            <div className="container mt-20 h-max w-full">
                 <ProjectsGrid />
             </div>
 

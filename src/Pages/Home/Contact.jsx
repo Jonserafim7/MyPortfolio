@@ -75,7 +75,7 @@ export default function Contact() {
         <section
             id="home--contact"
             ref={sectionContainerRef}
-            className="flex h-screen w-full flex-col bg-neutral-900"
+            className="flex h-screen w-full flex-col"
         >
             <div className="grid h-full">
                 <div className="relative flex flex-col items-center justify-center text-center">

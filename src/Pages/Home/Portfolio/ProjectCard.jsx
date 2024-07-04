@@ -107,12 +107,12 @@ const ProjectCard = React.forwardRef(
             <div
                 ref={ref}
                 className={cn(
-                    `card-container relative grid h-[300px] flex-1 transform-gpu grid-cols-2 grid-rows-2 overflow-hidden p-10 shadow-3xl duration-500 ease-in-out hover:grow-[2] hover:cursor-pointer md:h-[550px]`,
+                    `card-container relative grid h-[500px] flex-1 transform-gpu grid-cols-4 overflow-hidden p-4 shadow-3xl duration-500 ease-in-out hover:grow-[2] hover:cursor-pointer hover:rounded-3xl lg:p-8`,
                     className
                 )}
             >
-                {/* TOP RIGHT */}
-                <div className="title-container relative z-30 col-span-2 col-start-1 row-start-1 flex h-max flex-col justify-self-end overflow-hidden">
+                {/* HEADER */}
+                <div className="title-container relative z-30 col-span-4 col-start-1 row-start-1 flex h-max flex-col justify-self-end overflow-hidden">
                     <h3 className="title font-mont text-3xl font-black uppercase drop-shadow-lg">
                         {project.title}
                     </h3>
@@ -121,8 +121,8 @@ const ProjectCard = React.forwardRef(
                     </span>
                 </div>
 
-                {/* BOTTOM LEFT */}
-                <div className="relative z-30 col-start-1 row-start-2 flex flex-col self-end justify-self-start">
+                {/* CONTENT */}
+                <div className="relative z-30 col-span-4 col-start-1 row-start-2 flex h-full w-full flex-col justify-end self-end justify-self-start lg:col-span-3 xl:col-span-2 xl:col-start-1">
                     <h4 className="text-2xl/none font-medium">
                         {project.type}
                     </h4>
@@ -143,8 +143,8 @@ const ProjectCard = React.forwardRef(
                     </div>
                 </div>
 
-                {/* BOTTOM RIGHT */}
-                <div className="buttons-container z-30 col-start-2 row-start-3 mt-10 flex self-end justify-self-end lg:row-start-2">
+                {/* FOOTER */}
+                <div className="buttons-container z-30 col-span-4 col-start-1 row-start-3 flex w-full justify-end self-end justify-self-end lg:col-span-2 lg:col-start-3 xl:col-span-2 xl:col-start-3 xl:row-start-2">
                     <a href={project.live} target="_blank">
                         <ButtonWithIcon
                             variant={'ghost'}

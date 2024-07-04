@@ -19,9 +19,9 @@ export default function ProjectsGrid() {
     return (
         <div
             ref={sectionContainerRef}
-            className="relative grid h-full w-full gap-2 overflow-hidden rounded-3xl shadow-xl"
+            className="relative grid h-max w-full gap-2 overflow-hidden shadow-xl"
         >
-            <div className="flex h-max flex-col gap-2 md:flex-row">
+            <div className="flex flex-col gap-2 md:flex-row">
                 {projects[0] && (
                     <ProjectCard
                         ref={card1Ref}
@@ -33,7 +33,7 @@ export default function ProjectsGrid() {
                     <ProjectCard ref={card2Ref} project={projects[1]} />
                 )}
             </div>
-            <div className="flex h-max flex-col gap-2 md:flex-row">
+            <div className="flex flex-col gap-2 md:flex-row">
                 {projects[2] && (
                     <ProjectCard
                         ref={card3Ref}
