@@ -145,27 +145,29 @@ const ProjectCard = React.forwardRef(
 
                 {/* FOOTER */}
                 <div className="buttons-container z-30 col-span-4 col-start-1 row-start-3 flex w-full justify-end self-end justify-self-end xl:col-span-2 xl:col-start-3 xl:row-start-2">
-                    <a href={project.live} target="_blank">
-                        <ButtonWithIcon
-                            variant={'ghost'}
-                            size="sm"
-                            className=""
-                        >
-                            <svg
-                                width="30"
-                                height="30"
-                                viewBox="0 0 60 60"
-                                fill="none"
-                                xmlns="http://www.w3.org/2000/svg"
+                    {project.live && (
+                        <a href={project.live} target="_blank">
+                            <ButtonWithIcon
+                                variant={'ghost'}
+                                size="sm"
+                                className=""
                             >
-                                <path
-                                    d="M16.225 47.6H15.65L12.825 44.75V44.175L17.15 39.9H20.15L20.525 40.275V43.275L16.25 47.6H16.225ZM12.825 15.775V15.25L15.65 12.425H16.225L20.5 16.7V19.7L20.125 20.075H17.125L12.825 15.775ZM37.725 38.5H33.6L33.25 38.175V28.6C33.25 26.9 32.575 25.6 30.5 25.525C29.45 25.525 28.25 25.525 26.925 25.575L26.75 25.775V38.175L26.4 38.525H22.25L21.925 38.175V21.825L22.25 21.475H31.5C32.3557 21.4717 33.2036 21.6374 33.9951 21.9626C34.7866 22.2878 35.5061 22.766 36.1124 23.3699C36.7186 23.9739 37.1996 24.6915 37.5278 25.4818C37.8561 26.272 38.025 27.1193 38.025 27.975V38.175L37.7 38.525L37.725 38.5ZM16.8 32.4H0.35L0 32.05V27.95L0.35 27.6H16.8L17.15 27.95V32.05L16.8 32.4ZM59.65 32.4H43.2L42.85 32.05V27.95L43.2 27.6H59.65L60 27.95V32.05L59.65 32.4ZM27.625 16.375V4.1L27.975 3.75H32.1L32.45 4.1V16.35L32.1 16.7H27.975L27.625 16.375ZM27.625 55.9V43.65L27.975 43.3H32.1L32.45 43.625V55.9L32.1 56.25H27.975L27.625 55.9Z"
-                                    fill="#F5F4F2"
-                                />
-                            </svg>
-                            <span>Demo</span>
-                        </ButtonWithIcon>
-                    </a>
+                                <svg
+                                    width="30"
+                                    height="30"
+                                    viewBox="0 0 60 60"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                >
+                                    <path
+                                        d="M16.225 47.6H15.65L12.825 44.75V44.175L17.15 39.9H20.15L20.525 40.275V43.275L16.25 47.6H16.225ZM12.825 15.775V15.25L15.65 12.425H16.225L20.5 16.7V19.7L20.125 20.075H17.125L12.825 15.775ZM37.725 38.5H33.6L33.25 38.175V28.6C33.25 26.9 32.575 25.6 30.5 25.525C29.45 25.525 28.25 25.525 26.925 25.575L26.75 25.775V38.175L26.4 38.525H22.25L21.925 38.175V21.825L22.25 21.475H31.5C32.3557 21.4717 33.2036 21.6374 33.9951 21.9626C34.7866 22.2878 35.5061 22.766 36.1124 23.3699C36.7186 23.9739 37.1996 24.6915 37.5278 25.4818C37.8561 26.272 38.025 27.1193 38.025 27.975V38.175L37.7 38.525L37.725 38.5ZM16.8 32.4H0.35L0 32.05V27.95L0.35 27.6H16.8L17.15 27.95V32.05L16.8 32.4ZM59.65 32.4H43.2L42.85 32.05V27.95L43.2 27.6H59.65L60 27.95V32.05L59.65 32.4ZM27.625 16.375V4.1L27.975 3.75H32.1L32.45 4.1V16.35L32.1 16.7H27.975L27.625 16.375ZM27.625 55.9V43.65L27.975 43.3H32.1L32.45 43.625V55.9L32.1 56.25H27.975L27.625 55.9Z"
+                                        fill="#F5F4F2"
+                                    />
+                                </svg>
+                                <span>Demo</span>
+                            </ButtonWithIcon>
+                        </a>
+                    )}
 
                     <a href={project.github} target="_blank">
                         <ButtonWithIcon variant="" size="sm">
@@ -187,7 +189,7 @@ const ProjectCard = React.forwardRef(
                 </div>
 
                 {/* ABSOLUTE IMAGE AND GRADIENT */}
-                <div className="card-overlay absolute z-20 h-full w-full bg-gradient-radial filter"></div>
+                <div className="card-overlay absolute z-20 h-full w-full bg-gradient-radial filter hover:backdrop:blur-sm"></div>
                 <div
                     className={`card-bg absolute inset-0 left-[-25%] top-[-25%] z-10 h-[150%] w-[150%] bg-cover bg-center bg-no-repeat`}
                     style={{

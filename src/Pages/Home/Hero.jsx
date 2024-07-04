@@ -84,6 +84,30 @@ export default function Hero() {
                     },
                     '-=1.2'
                 )
+
+            // LINKS
+            const heroLinks = gsap.utils.toArray(
+                sectionContainerRef.current.querySelectorAll('a')
+            )
+
+            heroLinks.forEach((link) => {
+                // SCROLL TO LINK
+                let element = document.querySelector(link.getAttribute('href'))
+
+                const linkST = ScrollTrigger.create({
+                    trigger: element,
+                    start: 'top top',
+                })
+
+                link.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: linkST.start,
+                        overwrite: 'auto',
+                    })
+                })
+            })
         },
         { scope: sectionContainerRef }
     )
@@ -121,10 +145,10 @@ export default function Hero() {
                     <div className="overflow-hidden">
                         <div ref={ctasRef} className="footer mt-6 flex">
                             <ButtonWithIcon variant="">
-                                Portfolio
+                                <a href="#home--portfolio">Portfolio</a>
                             </ButtonWithIcon>
                             <ButtonWithIcon variant="ghost">
-                                About me
+                                <a href="#home--about">About me</a>
                             </ButtonWithIcon>
                         </div>
                     </div>

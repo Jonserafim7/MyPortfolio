@@ -14,8 +14,8 @@ export default function About() {
     const titleRef = useRef(null)
     const paragraphRef = useRef(null)
     const overlayRef = useRef(null)
-    // const buttonRef = useRef(null)
     const lineTopRef = useRef(null)
+    const accordionContainerRef = useRef(null)
 
     // GSAP ANIMATIONS
     useGSAP(
@@ -24,6 +24,7 @@ export default function About() {
 
             // SPLITTING TEXT
             const paragraphSplit = new SplitType(paragraphRef.current)
+            const titleSplit = new SplitType(titleRef.current)
 
             //TIMELINE
             const tl = gsap
@@ -40,25 +41,15 @@ export default function About() {
                     },
                 })
 
-                // .from(
-                //     creativeMind,
-                //     {
-                //         xPercent: -100,
-                //         opacity: 0,
-                //         stagger: 0.2,
-                //     },
-                //     '0'
-                // )
-                // .from(
-                //     technicalEdge,
-                //     {
-                //         yPercent: -100,
-                //         opacity: 0,
-                //         stagger: 0.2,
-                //     },
-                //     '-=1.2'
-                // )
-
+                .from(
+                    titleSplit.words,
+                    {
+                        yPercent: -100,
+                        opacity: 0,
+                        stagger: 0.1,
+                    },
+                    '0'
+                )
                 .from(
                     paragraphSplit.lines,
                     {
@@ -66,16 +57,16 @@ export default function About() {
                         opacity: 0,
                         stagger: 0.1,
                     },
-                    '-=1.2'
+                    '-=1.4'
                 )
-            // .from(
-            //     buttonRef.current,
-            //     {
-            //         xPercent: -100,
-            //         opacity: 0,
-            //     },
-            //     '-=1.2'
-            // )
+                .from(
+                    accordionContainerRef.current,
+                    {
+                        opacity: 0,
+                        yPercent: 10,
+                    },
+                    '-=1'
+                )
 
             const scrubTl = gsap.timeline({
                 scrollTrigger: {
@@ -144,7 +135,7 @@ export default function About() {
                     </p>
                 </div>
 
-                <div className="mt-4">
+                <div ref={accordionContainerRef} className="mt-4">
                     <AboutAccordion />
                 </div>
             </div>
