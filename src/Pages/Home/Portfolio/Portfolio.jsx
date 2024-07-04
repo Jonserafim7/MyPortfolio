@@ -57,7 +57,7 @@ export default function Portfolio() {
             const scrubTl = gsap.timeline({
                 scrollTrigger: {
                     trigger: sectionContainerRef.current,
-                    start: 'top bottom',
+                    start: 'top 80%',
                     end: 'top 10%',
                     scrub: 1,
                     // markers: true,
@@ -131,18 +131,9 @@ export default function Portfolio() {
             </div>
 
             {/* PROJECTS */}
-            <div className="container mt-20 h-max w-full">
+            <div className="container py-10 lg:py-20">
                 <ProjectsGrid />
             </div>
-
-            {/* CTA */}
-            {/* <div className="mt-20 grid w-full place-content-center overflow-hidden">
-                <div ref={buttonRef}>
-                    <ButtonWithIcon variant="">
-                        View all Projects
-                    </ButtonWithIcon>
-                </div>
-            </div> */}
         </section>
     )
 }

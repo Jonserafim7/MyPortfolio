@@ -144,7 +144,7 @@ const ProjectCard = React.forwardRef(
                 </div>
 
                 {/* FOOTER */}
-                <div className="buttons-container z-30 col-span-4 col-start-1 row-start-3 flex w-full justify-end self-end justify-self-end lg:col-span-2 lg:col-start-3 xl:col-span-2 xl:col-start-3 xl:row-start-2">
+                <div className="buttons-container z-30 col-span-4 col-start-1 row-start-3 flex w-full justify-end self-end justify-self-end xl:col-span-2 xl:col-start-3 xl:row-start-2">
                     <a href={project.live} target="_blank">
                         <ButtonWithIcon
                             variant={'ghost'}

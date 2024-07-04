@@ -36,7 +36,7 @@
     }
 
     h3 {
-        @apply font-mont text-3xl font-medium lg:text-4xl xl:text-6xl;
+        @apply font-mont text-3xl font-bold lg:text-5xl xl:text-6xl;
     }
 
     p {
@@ -46,7 +46,7 @@
     progress {
         position: fixed;
         top: 0;
-        right: 0;
+        left: 0;
         -webkit-appearance: none;
         appearance: none;
         width: 100%;

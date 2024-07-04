@@ -1,6 +1,6 @@
 // components
 import Hero from './Hero'
-import About from './About'
+import About from './About/About'
 import Portfolio from './Portfolio/Portfolio'
 import Contact from './Contact'
 //react

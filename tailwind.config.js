@@ -23,9 +23,11 @@ module.exports = {
         },
         container: {
             center: true,
-            padding: '1rem',
-            screens: {
-                '2xl': '1400px',
+            padding: {
+                DEFAULT: '1rem',
+                md: '2rem',
+                lg: '4rem',
+                xl: '8rem',
             },
         },
         extend: {
