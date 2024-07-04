@@ -1,55 +1,185 @@
-export default function Nav() {
+import { useRef, useEffect, useState } from 'react'
+import gsap from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
+import SplitType from 'split-type'
+
+gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin)
+
+export default function Header() {
+    // REFS
+    const headerRef = useRef(null)
+    const menuTl = useRef()
+
+    // function to toggle menu
+    const toggleMenu = () => {
+        menuTl.current.reversed(!menuTl.current.reversed())
+    }
+
+    // GSAP ANIMATIONS
+    useGSAP(
+        () => {
+            // VARIABLES
+            const container = headerRef.current.children[0]
+            // console.log('container', container)
+
+            const aside = headerRef.current.children[0].children[0]
+            // console.log('aside', aside)
+
+            const logo = headerRef.current.children[0].children[1]
+            // console.log('logo', logo)
+
+            const links = gsap.utils.toArray(
+                headerRef.current.querySelectorAll('a')
+            )
+            // console.log('links', links)
+
+            // MENU TIMELINE
+            menuTl.current = gsap
+                .timeline({ defaults: { ease: 'power3.out', duration: 0.3 } })
+                .to(container, {
+                    xPercent: 55,
+                })
+                .to(
+                    logo,
+                    {
+                        xPercent: -15,
+                    },
+                    '0'
+                )
+                .from(
+                    links,
+                    {
+                        xPercent: -100,
+                        stagger: 0.1,
+                    },
+                    '0'
+                )
+                .reverse()
+                .to(
+                    aside.children[0],
+                    {
+                        yPercent: -100,
+                    },
+                    '0.1'
+                )
+
+            // LINKS ANIMATION
+            links.forEach((link) => {
+                let tl = gsap
+                    .timeline({ paused: true })
+                    .to([link.children[0], link.children[1]], {
+                        yPercent: -100,
+                        color: '#2dd4bf',
+                        ease: 'power3.inOut',
+                        duration: 0.3,
+                    })
+
+                link.addEventListener('mouseenter', () => tl.play())
+                link.addEventListener('mouseleave', () => tl.reverse())
+
+                // SCROLL TO LINK
+                let element = document.querySelector(link.getAttribute('href'))
+
+                const linkST = ScrollTrigger.create({
+                    trigger: element,
+                    start: 'top top',
+                })
+
+                link.addEventListener('click', (e) => {
+                    e.preventDefault()
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: linkST.start,
+                        overwrite: 'auto',
+                    })
+                })
+            })
+        },
+        { scope: headerRef.current }
+    )
+
     return (
-        <header className="sticky top-0 z-50 flex h-[10vh] w-full p-2 xl:h-screen xl:w-[8rem]">
-            {/* <header className="sticky top-0 z-50 flex h-[10vh] w-full p-2 xl:h-screen xl:w-[10rem]"> */}
-            <nav className="relative flex w-full items-center justify-between overflow-hidden rounded-3xl border border-neutral-800 px-5 shadow-3xl before:absolute before:inset-0 before:-z-10 before:backdrop-blur xl:flex-col xl:p-0 xl:py-10">
-                {/* LOGO */}
-                <div className="rounded-2xl bg-teal-500 px-4 py-1 text-xl font-bold xl:p-4 xl:text-2xl">
-                    <span className="drop-shadow-md">J</span>
+        <header
+            ref={headerRef}
+            className="fixed top-0 z-50 flex h-[10vh] w-full"
+        >
+            <div className="flex -translate-x-[55%] gap-10">
+                <aside className="relative flex h-screen flex-col bg-neutral-865 px-16 font-mont font-normal uppercase">
+                    <div className="absolute right-0 top-0 h-full w-[1px] translate-y-full border-r border-indigo-400/20"></div>
+
+                    <nav className="mt-[10vh] text-2xl">
+                        <ul className="flex flex-col gap-10">
+                            <li>
+                                <div className="link-mask overflow-hidden">
+                                    <a
+                                        className="relative flex flex-col"
+                                        href="#home--hero"
+                                    >
+                                        <span>Home</span>
+                                        <span className="absolute translate-y-full">
+                                            Home
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="link-mask overflow-hidden">
+                                    <a
+                                        className="relative flex flex-col"
+                                        href="#home--about"
+                                    >
+                                        <span>About</span>
+                                        <span className="absolute translate-y-full">
+                                            About
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="link-mask overflow-hidden">
+                                    <a
+                                        className="relative flex flex-col"
+                                        href="#home--portfolio"
+                                    >
+                                        <span>Portfolio</span>
+                                        <span className="absolute translate-y-full">
+                                            Portfolio
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                            <li>
+                                <div className="link-mask overflow-hidden">
+                                    <a
+                                        className="relative flex flex-col"
+                                        href="#home--contact"
+                                    >
+                                        <span>Contact</span>
+                                        <span className="absolute translate-y-full">
+                                            Contact
+                                        </span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </aside>
+                <div className="relative flex items-center gap-8 px-5">
+                    {' '}
+                    <button onClick={toggleMenu}>
+                        <div className="flex h-6 w-8 flex-col justify-between">
+                            <div className="h-1 w-1/2 rounded-full bg-neutral-50"></div>
+                            <div className="h-1 w-full rounded-full bg-neutral-50"></div>
+                            <div className="h-1 w-1/2 self-end rounded-full bg-neutral-50"></div>
+                        </div>
+                    </button>
+                    <div className="font-mont text-3xl font-black md:text-4xl">
+                        <span className="text-teal-400">J</span>onas
+                    </div>
                 </div>
-
-                {/* nav links for lg screen sizes*/}
-                <ul className="xl:vertical-text hidden items-center justify-center gap-20 text-sm lg:flex">
-                    <li>
-                        <a href="#" className="transform">
-                            About me
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="#">Contact</a>
-                    </li>
-                </ul>
-
-                {/* social icons */}
-                <div className="hidden items-center justify-center gap-2 text-neutral-500 lg:flex xl:flex-col">
-                    <svg
-                        className="h-auto w-8 cursor-pointer lg:w-10"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 30 30"
-                        fill="none"
-                    >
-                        <path
-                            d="M15 2.5C13.3585 2.5 11.733 2.82332 10.2165 3.45151C8.69989 4.07969 7.3219 5.00043 6.16117 6.16116C3.81696 8.50537 2.5 11.6848 2.5 15C2.5 20.525 6.0875 25.2125 11.05 26.875C11.675 26.975 11.875 26.5875 11.875 26.25V24.1375C8.4125 24.8875 7.675 22.4625 7.675 22.4625C7.1 21.0125 6.2875 20.625 6.2875 20.625C5.15 19.85 6.375 19.875 6.375 19.875C7.625 19.9625 8.2875 21.1625 8.2875 21.1625C9.375 23.0625 11.2125 22.5 11.925 22.2C12.0375 21.3875 12.3625 20.8375 12.7125 20.525C9.9375 20.2125 7.025 19.1375 7.025 14.375C7.025 12.9875 7.5 11.875 8.3125 10.9875C8.1875 10.675 7.75 9.375 8.4375 7.6875C8.4375 7.6875 9.4875 7.35 11.875 8.9625C12.8625 8.6875 13.9375 8.55 15 8.55C16.0625 8.55 17.1375 8.6875 18.125 8.9625C20.5125 7.35 21.5625 7.6875 21.5625 7.6875C22.25 9.375 21.8125 10.675 21.6875 10.9875C22.5 11.875 22.975 12.9875 22.975 14.375C22.975 19.15 20.05 20.2 17.2625 20.5125C17.7125 20.9 18.125 21.6625 18.125 22.825V26.25C18.125 26.5875 18.325 26.9875 18.9625 26.875C23.925 25.2 27.5 20.525 27.5 15C27.5 13.3585 27.1767 11.733 26.5485 10.2165C25.9203 8.69989 24.9996 7.3219 23.8388 6.16116C22.6781 5.00043 21.3001 4.07969 19.7835 3.45151C18.267 2.82332 16.6415 2.5 15 2.5Z"
-                            fill="currentColor"
-                        />
-                    </svg>
-
-                    <svg
-                        className="h-auto w-8 cursor-pointer lg:w-10"
-                        xmlns="http://www.w3.org/2000/svg"
-                        viewBox="0 0 30 30"
-                        fill="none"
-                    >
-                        <path
-                            d="M23.75 3.75C24.413 3.75 25.0489 4.01339 25.5178 4.48223C25.9866 4.95107 26.25 5.58696 26.25 6.25V23.75C26.25 24.413 25.9866 25.0489 25.5178 25.5178C25.0489 25.9866 24.413 26.25 23.75 26.25H6.25C5.58696 26.25 4.95107 25.9866 4.48223 25.5178C4.01339 25.0489 3.75 24.413 3.75 23.75V6.25C3.75 5.58696 4.01339 4.95107 4.48223 4.48223C4.95107 4.01339 5.58696 3.75 6.25 3.75H23.75ZM23.125 23.125V16.5C23.125 15.4192 22.6957 14.3828 21.9315 13.6185C21.1672 12.8543 20.1308 12.425 19.05 12.425C17.9875 12.425 16.75 13.075 16.15 14.05V12.6625H12.6625V23.125H16.15V16.9625C16.15 16 16.925 15.2125 17.8875 15.2125C18.3516 15.2125 18.7967 15.3969 19.1249 15.7251C19.4531 16.0533 19.6375 16.4984 19.6375 16.9625V23.125H23.125ZM8.6 10.7C9.15695 10.7 9.6911 10.4788 10.0849 10.0849C10.4788 9.6911 10.7 9.15695 10.7 8.6C10.7 7.4375 9.7625 6.4875 8.6 6.4875C8.03973 6.4875 7.50241 6.71007 7.10624 7.10624C6.71007 7.50241 6.4875 8.03973 6.4875 8.6C6.4875 9.7625 7.4375 10.7 8.6 10.7ZM10.3375 23.125V12.6625H6.875V23.125H10.3375Z"
-                            fill="currentColor"
-                        />
-                    </svg>
-                </div>
-            </nav>
+            </div>
         </header>
     )
 }

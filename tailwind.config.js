@@ -19,16 +19,32 @@ module.exports = {
         fontFamily: {
             roboto: ['Roboto', 'sans-serif'],
             space: ['Space Grotesk', 'sans-serif'],
+            mont: ['Montserrat', 'sans-serif'],
         },
         container: {
             center: true,
+            padding: '1rem',
             screens: {
                 '2xl': '1400px',
             },
         },
         extend: {
+            colors: {
+                neutral: {
+                    875: '#1A1A1A',
+                    865: '#1B1B1B',
+                    855: '#1C1C1C',
+                    845: '#1F1F1F',
+                    835: '#212121',
+                    825: '#242424',
+                },
+            },
             boxShadow: {
                 '3xl': '0px 8px 12px 6px rgba(0, 0, 0, 0.15), 0px 4px 4px 0px rgba(0, 0, 0, 0.3)',
+            },
+            backgroundImage: {
+                'gradient-radial':
+                    'radial-gradient(circle at center,rgb(10 10 10 / 0) 0%,rgb(10, 10, 10, 0.5) 100%)',
             },
             keyframes: {
                 'accordion-down': {

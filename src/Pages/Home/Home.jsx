@@ -1,15 +1,29 @@
 // components
 import Hero from './Hero'
-import Tools from './Tools'
 import About from './About'
-import Portfolio from './Portfolio'
+import Portfolio from './Portfolio/Portfolio'
 import Contact from './Contact'
+//react
+import { useRef } from 'react'
+//gsap
+import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+//gsap plugins
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export default function Home() {
+    // refs
+    const homeRef = useRef(null)
+
+    // gsap animations
+    useGSAP(() => {}, { scope: homeRef })
     return (
-        <div className="home flex h-full w-full flex-col items-center gap-10 lg:gap-20">
+        <div
+            ref={homeRef}
+            className="home flex h-full w-full flex-col overflow-hidden"
+        >
             <Hero />
-            <Tools />
             <About />
             <Portfolio />
             <Contact />

@@ -1,31 +1,31 @@
-import ParallaxStars from '../assets/ParallaxStars'
-import { AlignLeft } from 'lucide-react'
-import { Github } from 'lucide-react'
-import { Linkedin } from 'lucide-react'
 import Header from './Header'
 import { Outlet } from 'react-router-dom'
-import Footer from './Footer'
+import { gsap } from 'gsap'
+import { useGSAP } from '@gsap/react'
+import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import { useRef } from 'react'
+
+gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export default function Layout() {
+    const layoutRef = useRef(null)
+    useGSAP(
+        () => {
+            gsap.to('progress', {
+                value: 100,
+                ease: 'none',
+                scrollTrigger: { scrub: 0.3 },
+            })
+        },
+        { scope: layoutRef.current }
+    )
     return (
-        <div className="layout">
-            <AlignLeft className="fixed left-10 top-10" size={40} />
-            <Github className="fixed bottom-10 right-10" size={40} />
-            <Linkedin className="fixed bottom-24 right-10" size={40} />
-            <ParallaxStars />
-            <main className="p-2">
+        <div ref={layoutRef} className="layout relative overflow-hidden">
+            <progress max="100" value="0"></progress>
+            <Header />
+            <main className="">
                 <Outlet />
             </main>
-            <Footer />
         </div>
     )
-}
-
-{
-    /* <div className="flex flex-col xl:flex-row">
-                <Header />
-
-                <div className="flex flex-col px-2 xl:py-2 xl:pl-0">
-                </div>
-            </div> */
 }

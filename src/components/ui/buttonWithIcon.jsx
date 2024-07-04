@@ -1,12 +1,12 @@
 import { ArrowRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import { useRef } from 'react'
+import React, { useRef } from 'react'
 import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 
 gsap.registerPlugin(useGSAP)
 
-export function ButtonWithIcon({ children, variant, size, ...props }) {
+const ButtonWithIcon = React.forwardRef(({ children, size, variant }, ref) => {
     const containerRef = useRef(null)
 
     useGSAP(
@@ -37,6 +37,13 @@ export function ButtonWithIcon({ children, variant, size, ...props }) {
                     return
                 },
             })
+                .to(
+                    containerRef.current.children[0],
+                    {
+                        xPercent: -10,
+                    },
+                    '<'
+                )
                 .to(
                     buttonText,
                     {
@@ -92,23 +99,29 @@ export function ButtonWithIcon({ children, variant, size, ...props }) {
     return (
         <Button
             ref={containerRef}
-            className="flex items-center gap-2 relative overflow-hidden"
+            className="relative flex items-center gap-2 overflow-hidden"
             size={size || 'default'}
             variant={variant || 'default'}
         >
             {/* TEXT */}
-            <div className="flex flex-col relative overflow-hidden z-10">
-                <div>{children}</div>
-                <div className="absolute translate-y-full">{children}</div>
+            <div className="relative z-10 flex flex-col overflow-hidden">
+                <div className="flex items-center justify-center gap-2">
+                    {children}
+                </div>
+                <div className="absolute flex translate-y-full items-center justify-center gap-2">
+                    {children}
+                </div>
             </div>
             {/* ICON */}
-            <ArrowRight className="w-[1.2em] h-[1.2em] absolute right-[10%] z-10" />
+            <ArrowRight className="absolute right-[10%] z-10 h-[1.2em] w-[1.2em]" />
             {/* BACKGROUND */}
             {variant != 'ghost' && (
-                <div
-                    className={`absolute inset-0 scale-y-0 rounded-full`}
-                ></div>
+                <div className={`absolute inset-0 scale-y-0`}></div>
             )}
         </Button>
     )
-}
+})
+
+ButtonWithIcon.displayName = 'ButtonIcon'
+
+export { ButtonWithIcon }

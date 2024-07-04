@@ -9,90 +9,62 @@ import { ButtonWithIcon } from '@/components/ui/buttonWithIcon'
 // GSAP PLUGINS
 gsap.registerPlugin(useGSAP, ScrollTrigger)
 
-export default function Hero() {
+export default function Contact() {
     // Refs
     const sectionContainerRef = useRef(null)
-    const textContainerRef = useRef(null)
-    const videoContainerRef = useRef(null)
-    const buttonsContainerRef = useRef(null)
-    const tl1Ref = useRef(null)
-    const tl2Ref = useRef(null)
+    const headingRef = useRef(null)
+    const paragraphRef = useRef(null)
+    const ctasRef = useRef(null)
 
     // GSAP Animations
     useGSAP(
         () => {
-            // Variables
-            const sectionContainer = sectionContainerRef.current
-            const textContainer = textContainerRef.current
-            const videoContainer = videoContainerRef.current
-            const buttonsContainer = buttonsContainerRef.current
-            const headerSplit = new SplitType(textContainer.querySelector('h1'))
-            const subHeaderSplit = new SplitType(
-                textContainer.querySelector('p')
-            )
+            const headingSplit = new SplitType(headingRef.current)
+            const paragraphSplit = new SplitType(paragraphRef.current)
 
-            // Animations
-            tl1Ref.current = gsap
-                .timeline({
-                    defaults: { ease: 'power4.inout', duration: 2 },
-                    scrollTrigger: {
-                        trigger: sectionContainer,
-                        start: 'top 60%',
-                        end: 'bottom 20%',
-                        // onToggle: (self) =>
-                        // console.log("toggled, isActive:", self.isActive),
-                        // onUpdate: (self) => {
-                        //   console.log(
-                        //     "progress:",
-                        //     self.progress.toFixed(3),
-                        //     "direction:",
-                        //     self.direction,
-                        //     "velocity",
-                        //     self.getVelocity(),
-                        //   )
-                        // },
-                    },
-                })
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionContainerRef.current,
+                    start: 'top 40%',
+                    end: 'bottom 99%',
+                    toggleActions: 'play none none none', //onEnter, onLeave, onEnterBack, onLeaveBack
+                    // markers: true,
+                },
+                defaults: {
+                    ease: 'power4.out',
+                    duration: 1,
+                },
+            })
+
+            tl.from(headingSplit.words, {
+                xPercent: 100,
+                opacity: 0,
+                stagger: 0.2,
+            })
                 .from(
-                    textContainer,
+                    paragraphSplit.lines,
                     {
-                        yPercent: -15,
-                    },
-                    '0'
-                )
-                .from(
-                    videoContainer,
-                    {
-                        yPercent: 15,
-                    },
-                    '0'
-                )
-                .from(
-                    headerSplit.words,
-                    {
-                        stagger: 0.05,
+                        yPercent: 100,
                         opacity: 0,
-                        xPercent: -100,
-                    },
-                    '0.5'
-                )
-                .from(
-                    subHeaderSplit.lines,
-                    {
-                        yPercent: -100,
-                        stagger: 0.1,
-                        opacity: 0,
-                    },
-                    '0.8'
-                )
-                .from(
-                    buttonsContainer.children,
-                    {
                         stagger: 0.2,
-                        opacity: 0,
-                        xPercent: -120,
                     },
-                    '1'
+                    '-=0.8'
+                )
+                .from(
+                    ctasRef.current.children[0],
+                    {
+                        xPercent: -150,
+                        opacity: 0,
+                    },
+                    '-=0.8'
+                )
+                .from(
+                    ctasRef.current.children[1],
+                    {
+                        xPercent: 150,
+                        opacity: 0,
+                    },
+                    '-=0.8'
                 )
         },
         { scope: sectionContainerRef }
@@ -103,38 +75,30 @@ export default function Hero() {
         <section
             id="home--contact"
             ref={sectionContainerRef}
-            className="relative flex h-[85vh] w-full flex-col gap-2 lg:flex-row lg:pt-4"
+            className="flex h-screen w-full flex-col"
         >
-            {/* TEXT CONTENT */}
-            <div ref={textContainerRef} className="content-container">
-                {/* TITLE */}
-                <h1 className="">
-                    Let's Work <br /> Together
-                </h1>
-                {/* SUBTITLE */}
-                <p className="mt-2 md:text-lg lg:text-lg xl:text-2xl">
-                    I'm excited to work on new projects and challenges. <br />
-                    Let's talk about how I can help.
-                </p>
-                <div ref={buttonsContainerRef} className="footer mt-6 flex">
-                    {/* CTAS */}
-                    <ButtonWithIcon variant="rose"> Contact</ButtonWithIcon>
-                    <ButtonWithIcon variant="ghost">Learn more</ButtonWithIcon>
+            <div className="grid h-full">
+                <div className="relative flex flex-col items-center justify-center text-center">
+                    <h2 ref={headingRef} className="flex flex-col uppercase">
+                        <span className="">Let's Work</span>
+                        <span className="font-black">Together</span>
+                    </h2>
+                    <p ref={paragraphRef} className="mt-2">
+                        I'm excited to work on new projects and challenges.{' '}
+                        <br />
+                        Let's talk about how I can help.
+                    </p>
+                    <div ref={ctasRef} className="footer mt-6 flex">
+                        <ButtonWithIcon variant="">Contact</ButtonWithIcon>
+                        <ButtonWithIcon variant="ghost">
+                            Learn more
+                        </ButtonWithIcon>
+                    </div>
                 </div>
             </div>
-            {/* VIDEO CONTAINER */}
-            <div
-                ref={videoContainerRef}
-                className="media-container xl:max-w-[60%]"
-            >
-                <video
-                    src="/videos/contact-video.mov"
-                    autoPlay={true}
-                    muted={true}
-                    loop={true}
-                    className="video"
-                ></video>
-            </div>
+            <footer className="flex w-full justify-center self-end py-10 text-sm">
+                <p>Site designed and developed by yours truly, Jonas.</p>
+            </footer>
         </section>
     )
 }

@@ -9,131 +9,171 @@ gsap.registerPlugin(useGSAP, ScrollTrigger)
 
 export default function About() {
     // REFS
-    const tl = useRef(null)
     const sectionContainerRef = useRef(null)
-    const textContaineRef = useRef(null)
-    const videoContainerRef = useRef(null)
-    const buttonContainerRef = useRef(null)
+    const titleRef = useRef(null)
+    const paragraphRef = useRef(null)
+    const overlayRef = useRef(null)
+    const buttonRef = useRef(null)
+    const lineTopRef = useRef(null)
 
     // GSAP ANIMATIONS
     useGSAP(
         () => {
             // VARIABLES
-            const sectionContainer = sectionContainerRef.current
-            const textContainer = textContaineRef.current
-            const videoContainer = videoContainerRef.current
-            const tagLineSplit = new SplitType(
-                textContainer.querySelector('h2')
+            const creativeMind = gsap.utils.toArray(
+                titleRef.current.children[0].children
             )
-            const titleSplit = new SplitType(textContainer.querySelector('h3'))
-            const paragraphSplit = new SplitType(
-                textContainer.querySelector('p')
+            const technicalEdge = gsap.utils.toArray(
+                titleRef.current.children[1].children
             )
-            const button = buttonContainerRef.current
 
-            const tl = gsap.timeline({
-                defaults: { ease: 'power3.out', duration: 2 },
-                scrollTrigger: {
-                    trigger: sectionContainer,
-                    start: 'top 60%',
-                    toggleActions: 'play none restart none', // onEnter, onLeave, onEnterBack, onLeaveBack
-                },
-            })
+            // SPLITTING TEXT
+            const paragraphSplit = new SplitType(paragraphRef.current)
 
-            tl.from(videoContainer, {
-                xPercent: -100,
-                opacity: 0,
-            })
+            //TIMELINE
+            const tl = gsap
+                .timeline({
+                    scrollTrigger: {
+                        trigger: sectionContainerRef.current,
+                        start: 'top 20%',
+                        end: '+=100%',
+                        toggleActions: 'play none none none', //onEnter, onLeave, onEnterBack, onLeaveBack
+                    },
+                    defaults: {
+                        ease: 'power4.out',
+                        duration: 1.5,
+                    },
+                })
 
                 .from(
-                    textContainer,
+                    creativeMind,
                     {
-                        yPercent: 100,
+                        xPercent: -100,
                         opacity: 0,
+                        stagger: 0.2,
                     },
-                    '-=1.8'
+                    '0'
+                )
+                .from(
+                    technicalEdge,
+                    {
+                        yPercent: -100,
+                        opacity: 0,
+                        stagger: 0.2,
+                    },
+                    '-=1.2'
                 )
 
-                .from(
-                    tagLineSplit.chars,
-                    {
-                        stagger: 0.1,
-                        opacity: 0,
-                        duration: 1,
-                    },
-                    '-=1.5'
-                )
-
-                .from(
-                    titleSplit.lines,
-                    {
-                        stagger: 0.3,
-                        opacity: 0,
-                        yPercent: -30,
-                    },
-                    '-=2'
-                )
                 .from(
                     paragraphSplit.lines,
                     {
-                        stagger: 0.1,
+                        yPercent: -210,
                         opacity: 0,
-                        xPercent: 20,
+                        stagger: 0.1,
                     },
-                    '-=2'
+                    '-=1.2'
                 )
                 .from(
-                    button,
+                    buttonRef.current,
                     {
                         xPercent: -100,
                         opacity: 0,
                     },
+                    '-=1.2'
+                )
+
+            const scrubTl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionContainerRef.current,
+                    start: 'top bottom',
+                    end: 'top 10%',
+                    scrub: 1,
+                    // markers: true,
+                },
+            })
+
+            scrubTl
+                .from(
+                    lineTopRef.current,
+                    {
+                        xPercent: -100,
+                    },
+                    ''
+                )
+                .from(
+                    overlayRef.current,
+                    {
+                        xPercent: 100,
+                    },
                     '<'
                 )
         },
-        { trigger: sectionContainerRef.current }
+        { scope: sectionContainerRef.current }
     )
 
     return (
         <section
             ref={sectionContainerRef}
+            className="relative grid w-full overflow-hidden"
             id="home--about"
-            className="container flex w-full flex-col gap-2 lg:flex-row"
         >
-            {/* VIDEO */}
-            <div
-                ref={videoContainerRef}
-                className="media-container lg:max-w-[40%]"
-            >
-                <video
-                    src="/videos/about-video.mov"
-                    autoPlay={true}
-                    muted={true}
-                    loop={true}
-                    className="video"
-                ></video>
+            <div className="grid w-full place-content-center">
+                <h2
+                    ref={overlayRef}
+                    className="z-10 font-mont text-[6rem] font-black uppercase leading-none text-indigo-200 opacity-10 md:text-[9.5rem] lg:text-[15rem] xl:text-[22rem]"
+                >
+                    About
+                </h2>
             </div>
 
-            {/* CONTENT */}
-            <div ref={textContaineRef} className="content-container">
-                <h2 className="title">About me</h2>
-                <h3 className="subtitle">
-                    Creative Mind with a Technical Edge
-                </h3>
-                <p className="mt-2">
-                    With a unique journey from civil engineering to front-end
-                    development, I bring a blend of technical precision and
-                    creative flair to every project. My passion for crafting
-                    user-friendly, visually appealing digital experiences drives
-                    my work. Following core principles in UI/UX design and
-                    equipped with a strong foundation in HTML, CSS, JavaScript,
-                    and React, I'm dedicated to transforming ideas into stunning
-                    realities.
-                </p>
-                <div ref={buttonContainerRef} className="mt-6 flex">
-                    <ButtonWithIcon variant="">Learn more</ButtonWithIcon>
+            <div className="container flex flex-col p-10 lg:flex-row lg:justify-center lg:gap-10 lg:p-20 xl:gap-20">
+                <div className="flex w-full grow overflow-hidden">
+                    <h3
+                        ref={titleRef}
+                        className="flex w-full flex-col md:text-5xl lg:items-end lg:gap-5 xl:text-6xl"
+                    >
+                        <span className="flex gap-2 lg:flex-col lg:items-end">
+                            <span>Creative</span>{' '}
+                            <span className="italic text-teal-400"> Mind</span>
+                        </span>
+
+                        <span className="flex gap-2 lg:flex-col lg:items-end">
+                            <span>Technical</span>
+                            <span className="italic text-indigo-400">Edge</span>
+                        </span>
+                    </h3>
+                </div>
+
+                <div className="mt-4 w-full shrink lg:mt-0">
+                    <article className="overflow-hidden">
+                        <p ref={paragraphRef} className="">
+                            With a unique journey from civil engineering to
+                            front-end development, I bring a blend of technical
+                            precision and creative flair to every project. My
+                            passion for crafting user-friendly, visually
+                            appealing digital experiences drives my work.
+                            <br />
+                            <br />
+                            Following core principles in UI/UX design and
+                            equipped with a strong foundation in HTML, CSS,
+                            JavaScript, and React, I'm dedicated to transforming
+                            ideas into stunning realities.
+                        </p>
+                    </article>
+                    <div className="mt-8 w-max overflow-hidden xl:mt-10">
+                        <div ref={buttonRef}>
+                            <ButtonWithIcon variant="">
+                                Learn more
+                            </ButtonWithIcon>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+            <div
+                ref={lineTopRef}
+                className="absolute top-0 h-[1px] w-[100%] border-t border-neutral-800"
+            ></div>
         </section>
     )
 }
