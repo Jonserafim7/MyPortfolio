@@ -95,7 +95,7 @@ export default function Hero() {
             ref={sectionContainerRef}
             className="grid h-screen w-full items-center"
         >
-            <div className="container grid h-max w-max">
+            <div className="container grid">
                 <div className="relative flex flex-col items-center justify-center text-center">
                     <div className="overflow-hidden">
                         <h1
@@ -114,8 +114,8 @@ export default function Hero() {
                     <div className="overflow-hidden">
                         <p ref={paragraphRef} className="mt-2">
                             Hello, I'm Jonas, I build engaging, user-centric web
-                            solutions. <br /> Check out my portfolio to see my
-                            work in action.
+                            solutions. <br className="hidden md:inline-block" />{' '}
+                            Check out my portfolio to see my work in action.
                         </p>
                     </div>
                     <div className="overflow-hidden">

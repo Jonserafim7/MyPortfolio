@@ -92,38 +92,37 @@ export default function Portfolio() {
     )
 
     return (
-        <section className="flex w-full flex-col overflow-hidden">
+        <section
+            id="home--portfolio"
+            className="mt-10 flex w-full flex-col overflow-hidden md:mt-16"
+        >
             {/* HEADING */}
             <div
                 ref={sectionContainerRef}
-                className="relative grid h-screen w-full place-content-center overflow-hidden"
+                className="relative flex w-full flex-col items-center overflow-hidden p-2"
             >
-                <div className="container flex items-center justify-center gap-20">
-                    <div className="overflow-hidden py-2">
-                        <h2 className="flex flex-col text-8xl">
-                            {/* <span className="text-sm">The</span> */}
-                            <span ref={titleRef} className="">
-                                Highlighted
-                            </span>
-                            <span
-                                ref={subtitleRef}
-                                className="ml-auto font-roboto text-4xl italic text-teal-400"
-                            >
-                                projects
-                            </span>
-                        </h2>
-                    </div>
-                </div>
-
-                <div
+                <h2
                     ref={overlayRef}
-                    className="absolute left-1/2 top-0 z-10 flex translate-x-[-50%] flex-col font-mont text-[28rem] font-bold uppercase leading-none text-indigo-200 opacity-10"
+                    className="flex flex-col font-mont text-[6rem] font-black uppercase leading-none text-indigo-200 opacity-10 md:text-[9.5rem] lg:text-[15rem] xl:text-[22rem]"
                 >
-                    <span className="translate-x-[-10%]">Port</span>
+                    <span className="translate-x-[-5%]">Port</span>
                     <span className="translate-x-[0%] leading-[0.6]">
                         folio
                     </span>
-                </div>
+                </h2>
+
+                <h3 className="mt-5 flex flex-col leading-none md:mt-10 md:text-5xl lg:text-6xl">
+                    {/* <span className="text-sm">The</span> */}
+                    <span ref={titleRef} className="">
+                        Highlighted
+                    </span>
+                    <span
+                        ref={subtitleRef}
+                        className="ml-auto italic text-teal-400"
+                    >
+                        projects
+                    </span>
+                </h3>
 
                 <div
                     ref={lineTopRef}
@@ -132,18 +131,18 @@ export default function Portfolio() {
             </div>
 
             {/* PROJECTS */}
-            <div className="container w-full">
+            <div className="container mt-20 w-full">
                 <ProjectsGrid />
             </div>
 
             {/* CTA */}
-            <div className="mt-20 grid w-full place-content-center overflow-hidden">
+            {/* <div className="mt-20 grid w-full place-content-center overflow-hidden">
                 <div ref={buttonRef}>
                     <ButtonWithIcon variant="">
                         View all Projects
                     </ButtonWithIcon>
                 </div>
-            </div>
+            </div> */}
         </section>
     )
 }

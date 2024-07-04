@@ -8,7 +8,6 @@ import SplitType from 'split-type'
 
 const ProjectCard = React.forwardRef(
     ({ project, className, ...props }, ref) => {
-        console.log(className)
         // GSAP ANIMATION
         useGSAP(
             () => {
@@ -108,12 +107,12 @@ const ProjectCard = React.forwardRef(
             <div
                 ref={ref}
                 className={cn(
-                    `card-container relative mx-auto grid h-[550px] flex-1 transform-gpu grid-cols-2 grid-rows-2 overflow-hidden p-10 shadow-3xl duration-500 ease-in-out hover:grow-[2] hover:cursor-pointer`,
+                    `card-container relative grid h-[300px] flex-1 transform-gpu grid-cols-2 grid-rows-2 overflow-hidden p-10 shadow-3xl duration-500 ease-in-out hover:grow-[2] hover:cursor-pointer md:h-[550px]`,
                     className
                 )}
             >
                 {/* TOP RIGHT */}
-                <div className="title-container relative z-30 col-start-2 row-start-1 flex h-max flex-col justify-self-end overflow-hidden">
+                <div className="title-container relative z-30 col-span-2 col-start-1 row-start-1 flex h-max flex-col justify-self-end overflow-hidden">
                     <h3 className="title font-mont text-3xl font-black uppercase drop-shadow-lg">
                         {project.title}
                     </h3>
@@ -145,7 +144,7 @@ const ProjectCard = React.forwardRef(
                 </div>
 
                 {/* BOTTOM RIGHT */}
-                <div className="buttons-container z-30 col-start-2 row-start-2 flex self-end justify-self-end">
+                <div className="buttons-container z-30 col-start-2 row-start-3 mt-10 flex self-end justify-self-end lg:row-start-2">
                     <a href={project.live} target="_blank">
                         <ButtonWithIcon
                             variant={'ghost'}

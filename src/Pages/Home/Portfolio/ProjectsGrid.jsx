@@ -21,19 +21,19 @@ export default function ProjectsGrid() {
             ref={sectionContainerRef}
             className="relative grid h-full w-full gap-2 overflow-hidden rounded-3xl shadow-xl"
         >
-            <div className="flex gap-2">
+            <div className="flex h-max flex-col gap-2 md:flex-row">
                 {projects[0] && (
                     <ProjectCard
                         ref={card1Ref}
                         project={projects[0]}
-                        className="grow-[1.3]"
+                        className="lg:grow-[1.3]"
                     />
                 )}
                 {projects[1] && (
                     <ProjectCard ref={card2Ref} project={projects[1]} />
                 )}
             </div>
-            <div className="flex gap-2">
+            <div className="flex h-max flex-col gap-2 md:flex-row">
                 {projects[2] && (
                     <ProjectCard
                         ref={card3Ref}
@@ -49,7 +49,7 @@ export default function ProjectsGrid() {
                     />
                 )}
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-col gap-2 md:flex-row">
                 {projects[4] && (
                     <ProjectCard
                         ref={card5Ref}
