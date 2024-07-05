@@ -79,3 +79,11 @@ This portfolio project showcases a comprehensive range of frontend development a
 
 ### Design System Integration
 - Follows design systems such as Material UI to maintain consistency and usability.
+
+## Contributing
+
+Contributions are welcome! If you have suggestions or enhancements, please fork the repository and submit a pull request. Your contributions will help improve the functionality and usability of this application.
+
+## License
+
+This project is open source and available under the [MIT License](LICENSE). This license allows you to modify, distribute, and use the application for both private and commercial purposes.
