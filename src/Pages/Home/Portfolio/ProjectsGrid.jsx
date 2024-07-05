@@ -18,6 +18,7 @@ export default function ProjectsGrid() {
     const card10Ref = useRef(null)
     const card11Ref = useRef(null)
     const card12Ref = useRef(null)
+    const card13Ref = useRef(null)
 
     // STATE
     const [projects, setProjects] = useState(projectsData)
@@ -39,13 +40,13 @@ export default function ProjectsGrid() {
                         className="lg:grow-[1.3]"
                     />
                 )}
-                {projects[1] && (
-                    <ProjectCard ref={card1Ref} project={projects[1]} />
-                )}
             </div>
 
             {/* ROW 2 */}
             <div className="flex flex-col gap-2 md:flex-row">
+                {projects[1] && (
+                    <ProjectCard ref={card1Ref} project={projects[1]} />
+                )}
                 {projects[2] && (
                     <ProjectCard
                         ref={card2Ref}
@@ -53,6 +54,10 @@ export default function ProjectsGrid() {
                         className="grow-[1]"
                     />
                 )}
+            </div>
+
+            {/* ROW 3 */}
+            <div className="flex flex-col gap-2 md:flex-row">
                 {projects[3] && (
                     <ProjectCard
                         ref={card3Ref}
@@ -60,10 +65,6 @@ export default function ProjectsGrid() {
                         className="grow-[1.2]"
                     />
                 )}
-            </div>
-
-            {/* ROW 3 */}
-            <div className="flex flex-col gap-2 md:flex-row">
                 {projects[4] && (
                     <ProjectCard
                         ref={card4Ref}
@@ -122,14 +123,14 @@ export default function ProjectsGrid() {
                     <ProjectCard
                         ref={card10Ref}
                         project={projects[10]}
-                        className="grow-[1]"
+                        className="grow-[1.1]"
                     />
                 )}
                 {projects[11] && (
                     <ProjectCard
                         ref={card11Ref}
                         project={projects[11]}
-                        className="grow-[1.2]"
+                        className="grow-[1]"
                     />
                 )}
             </div>

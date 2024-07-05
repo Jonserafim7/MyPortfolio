@@ -14,6 +14,21 @@ function Project(title, type, scope, badges, description, img, github, live) {
 }
 
 // create new project
+const portfolioWebsite = new Project(
+    'Portfolio Website',
+    'Website',
+    'Personal Portfolio',
+    ['React', 'Tailwind CSS', 'GSAP', 'React Router', 'shadcn/UI', 'Figma'],
+    'This portfolio project showcases a comprehensive range of frontend development and design skills, utilizing a variety of modern tools and best practices to create a responsive, interactive, and well-structured website.',
+    '/imgs/portfolio2.png',
+    'https://github.com/Jonserafim7/MyPortfolio',
+    ''
+)
+
+// push project to projectsData array
+projectsData.push(portfolioWebsite)
+
+// create new project
 const vanlife = new Project(
     'Vanlife',
     'Website',
@@ -27,6 +42,21 @@ const vanlife = new Project(
 
 // push project to projectsData array
 projectsData.push(vanlife)
+
+// create new project
+const multiStepForm = new Project(
+    'Multi-Step Form',
+    'Web App',
+    'Form Navigation / Firebase Integration',
+    ['React', 'SCSS', 'Firebase'],
+    'Multi-Step Form is a React-based web application that guides users through a series of steps to complete a form. Users can input personal information, select a subscription plan, choose add-ons, and confirm their selections. Key takeaways include React component development, form validation, and Firebase Firestore integration.',
+    '/imgs/multi-step-form2.jpg', // Ensure this path is correct and the image is available
+    'https://github.com/Jonserafim7/multi-step-form-main',
+    'https://multi-step-form-jonas.netlify.app/'
+)
+
+// push project to projectsData array
+projectsData.push(multiStepForm)
 
 // create new project
 const quizzical = new Project(
@@ -177,21 +207,6 @@ const restaurantOrderingApp = new Project(
 
 // push project to projectsData array
 projectsData.push(restaurantOrderingApp)
-
-// create new project
-const multiStepForm = new Project(
-    'Multi-Step Form',
-    'Web App',
-    'Form Navigation / Firebase Integration',
-    ['React', 'SCSS', 'Firebase'],
-    'Multi-Step Form is a React-based web application that guides users through a series of steps to complete a form. Users can input personal information, select a subscription plan, choose add-ons, and confirm their selections. Key takeaways include React component development, form validation, and Firebase Firestore integration.',
-    '/imgs/multi-step-form2.jpg', // Ensure this path is correct and the image is available
-    'https://github.com/Jonserafim7/multi-step-form-main',
-    'https://multi-step-form-jonas.netlify.app/'
-)
-
-// push project to projectsData array
-projectsData.push(multiStepForm)
 
 // create new project
 const componentLibrary = new Project(
