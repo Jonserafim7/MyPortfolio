@@ -28,7 +28,7 @@ export default function ProjectsGrid() {
     return (
         <div
             ref={sectionContainerRef}
-            className="relative grid h-max w-full gap-2 overflow-hidden shadow-xl"
+            className="relative grid h-max w-full gap-2 overflow-hidden rounded-3xl shadow-xl"
         >
             {/* ROW 1 */}
             <div className="flex flex-col gap-2 md:flex-row">

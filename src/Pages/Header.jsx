@@ -3,7 +3,6 @@ import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import { ScrollToPlugin } from 'gsap/ScrollToPlugin'
-import SplitType from 'split-type'
 import { ButtonWithIcon } from '@/components/ui/buttonWithIcon'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger, ScrollToPlugin)
@@ -14,10 +13,33 @@ export default function Header() {
     const menuTl = useRef()
     const githubLinkRef = useRef(null)
 
+    // STATE
+    const [menuOpen, setMenuOpen] = useState(false)
+
     // function to toggle menu
     const toggleMenu = () => {
+        if (event) event.stopPropagation() // Prevent click from bubbling to the document
         menuTl.current.reversed(!menuTl.current.reversed())
+        setMenuOpen(!menuOpen)
+        console.log('clicked')
     }
+
+    useEffect(() => {
+        // Function to close menu if open
+        const closeMenu = (event) => {
+            if (menuOpen) {
+                toggleMenu()
+            }
+        }
+
+        // Add event listener to the entire page
+        document.addEventListener('click', closeMenu)
+
+        // Cleanup function to remove event listener
+        return () => {
+            document.removeEventListener('click', closeMenu)
+        }
+    }, [menuOpen]) // This effect depends on `menuOpen`
 
     // // GSAP ANIMATIONS
     useGSAP(
@@ -28,7 +50,7 @@ export default function Header() {
             const links = gsap.utils.toArray(
                 headerRef.current.querySelectorAll('nav li a')
             )
-            console.log('links', links)
+            // console.log('links', links)
 
             // MENU TIMELINE
             menuTl.current = gsap
@@ -103,7 +125,7 @@ export default function Header() {
             <div className="w-full px-4">
                 <button
                     className="relative flex w-max items-center gap-4 p-8"
-                    onClick={toggleMenu}
+                    onClick={(event) => toggleMenu(event)}
                 >
                     <div className="font-mont text-3xl font-black md:text-4xl">
                         <span className="text-teal-400">J</span>onas

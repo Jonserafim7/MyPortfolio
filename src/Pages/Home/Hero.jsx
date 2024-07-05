@@ -19,8 +19,8 @@ export default function Hero() {
     // GSAP Animations
     useGSAP(
         () => {
-            const headingSplit = new SplitType(headingRef.current)
-            const paragraphSplit = new SplitType(paragraphRef.current)
+            // const headingSplit = new SplitType(headingRef.current)
+            // const paragraphSplit = new SplitType(paragraphRef.current)
 
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -37,12 +37,12 @@ export default function Hero() {
                 },
             })
 
-            tl.from(headingSplit.words[0], {
+            tl.from(headingRef.current.children[0], {
                 xPercent: 100,
                 opacity: 0,
             })
                 .from(
-                    headingSplit.words[1],
+                    headingRef.current.children[1],
                     {
                         xPercent: -100,
                         opacity: 0,
@@ -50,7 +50,7 @@ export default function Hero() {
                     '-=1.2'
                 )
                 .from(
-                    headingSplit.words[2],
+                    headingRef.current.children[2],
                     {
                         yPercent: 100,
                         opacity: 0,
@@ -58,7 +58,7 @@ export default function Hero() {
                     '-=1.2'
                 )
                 .from(
-                    paragraphSplit.lines,
+                    paragraphRef.current,
                     {
                         yPercent: 100,
                         opacity: 0,
@@ -84,6 +84,54 @@ export default function Hero() {
                     },
                     '-=1.2'
                 )
+
+            // tl.from(headingSplit.words[0], {
+            //     xPercent: 100,
+            //     opacity: 0,
+            // })
+            //     .from(
+            //         headingSplit.words[1],
+            //         {
+            //             xPercent: -100,
+            //             opacity: 0,
+            //         },
+            //         '-=1.2'
+            //     )
+            //     .from(
+            //         headingSplit.words[2],
+            //         {
+            //             yPercent: 100,
+            //             opacity: 0,
+            //         },
+            //         '-=1.2'
+            //     )
+            // .from(
+            //     paragraphSplit.lines,
+            //     {
+            //         yPercent: 100,
+            //         opacity: 0,
+            //         stagger: 0.2,
+            //     },
+            //     '-=1.2'
+            // )
+            // .from(
+            //     ctasRef.current.children[0],
+            //     {
+            //         // xPercent: -150,
+            //         scale: 0,
+            //         opacity: 0,
+            //     },
+            //     '-=1.2'
+            // )
+            // .from(
+            //     ctasRef.current.children[1],
+            //     {
+            //         // xPercent: 150,
+            //         opacity: 0,
+            //         scale: 0,
+            //     },
+            //     '-=1.2'
+            // )
 
             // LINKS
             const heroLinks = gsap.utils.toArray(

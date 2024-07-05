@@ -4,7 +4,7 @@ import { useGSAP } from '@gsap/react'
 import { Badge } from '@/components/ui/badge'
 import { ButtonWithIcon } from '@/components/ui/buttonWithIcon'
 import { cn } from '@/lib/utils'
-import SplitType from 'split-type'
+// import SplitType from 'split-type'
 
 const ProjectCard = React.forwardRef(
     ({ project, className, ...props }, ref) => {
@@ -18,7 +18,7 @@ const ProjectCard = React.forwardRef(
                 const projectScope = card.querySelector('h5')
                 const projectBadges = card.querySelector('.card-badges')
                 const projectDescription = card.querySelector('p')
-                const descriptionLines = new SplitType(projectDescription)
+                // const descriptionLines = new SplitType(projectDescription)
                 const projectButtons = card.querySelector('.buttons-container')
                 const cardOverlay = card.querySelector('.card-overlay')
                 const cardBg = card.querySelector('.card-bg')
@@ -34,11 +34,11 @@ const ProjectCard = React.forwardRef(
                         cardOverlay,
                         {
                             background:
-                                'linear-gradient(rgb(10 10 10 / 0) 0%,rgb(10, 10, 10, 0.5) 100%)',
+                                'radial-gradient(circle at center, rgb(10 10 10 / 0) 0%,rgb(10, 10, 10, 0.7) 100%)',
                         },
                         {
                             background:
-                                'linear-gradient(rgb(10 10 10 / 0) 0%,rgb(10, 10, 10, 1) 100%)',
+                                'radial-gradient(circle at center, rgb(10 10 10 / 0) 0%,rgb(10, 10, 10, 1) 100%)',
                         },
                         '0'
                     )
@@ -74,9 +74,9 @@ const ProjectCard = React.forwardRef(
                         '0'
                     )
                     .from(
-                        descriptionLines.lines,
+                        projectDescription,
                         {
-                            yPercent: 20,
+                            yPercent: 100,
                             opacity: 0,
                             stagger: 0.1,
                         },
@@ -126,7 +126,7 @@ const ProjectCard = React.forwardRef(
                     <h4 className="text-2xl/none font-medium">
                         {project.type}
                     </h4>
-                    <h5 className="font-mont text-2xl font-bold text-teal-500 drop-shadow-md">
+                    <h5 className="font-mont text-2xl font-black uppercase text-teal-400 drop-shadow-md">
                         {project.scope}
                     </h5>
                     <div className="card-badges mt-2 flex w-max gap-2 overflow-hidden">

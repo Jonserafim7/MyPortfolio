@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import SplitType from 'split-type'
+// import SplitType from 'split-type'
 import AboutAccordion from './AboutAccordion'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
@@ -23,42 +23,55 @@ export default function About() {
             // VARIABLES
 
             // SPLITTING TEXT
-            const paragraphSplit = new SplitType(paragraphRef.current)
-            const titleSplit = new SplitType(titleRef.current)
+            // const paragraphSplit = new SplitType(paragraphRef.current)
+            // const titleSplit = new SplitType(titleRef.current)
 
             //TIMELINE
-            const tl = gsap
-                .timeline({
-                    scrollTrigger: {
-                        trigger: sectionContainerRef.current,
-                        start: 'top 20%',
-                        end: '+=100%',
-                        toggleActions: 'play none none none', //onEnter, onLeave, onEnterBack, onLeaveBack
-                    },
-                    defaults: {
-                        ease: 'power4.out',
-                        duration: 1.5,
-                    },
-                })
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: sectionContainerRef.current,
+                    start: 'top 20%',
+                    end: '+=100%',
+                    toggleActions: 'play none none none', //onEnter, onLeave, onEnterBack, onLeaveBack
+                },
+                defaults: {
+                    ease: 'power4.out',
+                    duration: 1.5,
+                },
+            })
 
+            tl.from(titleRef.current.children, {
+                yPercent: -100,
+                opacity: 0,
+                stagger: 0.1,
+            })
                 .from(
-                    titleSplit.words,
-                    {
-                        yPercent: -100,
-                        opacity: 0,
-                        stagger: 0.1,
-                    },
-                    '0'
-                )
-                .from(
-                    paragraphSplit.lines,
+                    paragraphRef.current,
                     {
                         yPercent: -210,
                         opacity: 0,
-                        stagger: 0.1,
                     },
                     '-=1.4'
                 )
+
+                // .from(
+                //     titleSplit.words,
+                //     {
+                //         yPercent: -100,
+                //         opacity: 0,
+                //         stagger: 0.1,
+                //     },
+                //     '0'
+                // )
+                // .from(
+                //     paragraphSplit.lines,
+                //     {
+                //         yPercent: -210,
+                //         opacity: 0,
+                //         stagger: 0.1,
+                //     },
+                //     '-=1.4'
+                // )
                 .from(
                     accordionContainerRef.current,
                     {

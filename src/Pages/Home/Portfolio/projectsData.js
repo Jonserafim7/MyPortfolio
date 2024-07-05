@@ -37,7 +37,7 @@ const quizzical = new Project(
     'QUIZZICAL is a trivia app that fetches questions from the Open Trivia Database API. This is a learnining-focused project and is part of the Frontend Developer Career Path on Scrimba.',
     '/imgs/quizzical2.jpeg',
     'https://github.com/Jonserafim7/SoloProject-Quizzical',
-    ''
+    'https://quizzical-jonas.netlify.app/'
 )
 
 // push project to projectsData array
@@ -51,7 +51,7 @@ const movieWachlist = new Project(
     ['HTML', 'CSS', 'JS', 'React'],
     'MOVIE WATCHLIST is a website for people to add movies to their watchlist. This is a learnining-focused project and is part of the Frontend Developer Career Path on Scrimba.',
     '/imgs/movie-list2.jpg',
-    '',
+    'https://github.com/Jonserafim7/MovieWatchlist',
     ''
 )
 
@@ -67,7 +67,7 @@ const airbnbClone = new Project(
     'AIRBNB CLONE is a website that mimics the Airbnb website. This is a learnining-focused project and is part of the Frontend Developer Career Path on Scrimba.',
     '/imgs/airbnb2.jpg',
     'https://github.com/Jonserafim7/AirBnb-clone',
-    ''
+    'https://airbnb-jonas.netlify.app/'
 )
 
 // push project to projectsData array
@@ -185,7 +185,7 @@ const multiStepForm = new Project(
     'Form Navigation / Firebase Integration',
     ['React', 'SCSS', 'Firebase'],
     'Multi-Step Form is a React-based web application that guides users through a series of steps to complete a form. Users can input personal information, select a subscription plan, choose add-ons, and confirm their selections. Key takeaways include React component development, form validation, and Firebase Firestore integration.',
-    '/imgs/multi-step-form.jpg', // Ensure this path is correct and the image is available
+    '/imgs/multi-step-form2.jpg', // Ensure this path is correct and the image is available
     'https://github.com/Jonserafim7/multi-step-form-main',
     'https://multi-step-form-jonas.netlify.app/'
 )
@@ -200,7 +200,7 @@ const componentLibrary = new Project(
     'Reusable Component Design',
     ['React', 'SCSS'],
     'Component Library is a React-based web application that showcases a collection of reusable UI components. Users can view, copy, and customize components for use in their own projects. Key takeaways include React component design, SCSS styling, and component documentation.',
-    '/imgs/component-library.png', // Ensure this path is correct and the image is available
+    '/imgs/reusable-components.jpg', // Ensure this path is correct and the image is available
     'https://github.com/Jonserafim7/Component-Library',
     ''
 )

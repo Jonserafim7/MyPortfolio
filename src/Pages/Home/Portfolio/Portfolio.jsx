@@ -3,7 +3,7 @@ import { gsap } from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { useRef } from 'react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import SplitType from 'split-type'
+// import SplitType from 'split-type'
 import ProjectsGrid from './ProjectsGrid'
 
 gsap.registerPlugin(useGSAP, ScrollTrigger)
@@ -14,13 +14,13 @@ export default function Portfolio() {
     const titleRef = useRef(null)
     const subtitleRef = useRef(null)
     const overlayRef = useRef(null)
-    const buttonRef = useRef(null)
+    // const buttonRef = useRef(null)
     const lineTopRef = useRef(null)
     // GSAP ANIMATIONS
     useGSAP(
         () => {
             // VARIABLES
-            const overlaySplit = new SplitType(overlayRef.current.children[0])
+            // const overlaySplit = new SplitType(overlayRef.current.children[0])
             const tl = gsap
                 .timeline({
                     scrollTrigger: {
@@ -73,13 +73,21 @@ export default function Portfolio() {
                     ''
                 )
                 .from(
-                    overlaySplit.chars,
+                    overlayRef.current.children[0],
                     {
                         yPercent: -100,
                         stagger: 0.05,
                     },
                     '<'
                 )
+                // .from(
+                //     overlaySplit.chars,
+                //     {
+                //         yPercent: -100,
+                //         stagger: 0.05,
+                //     },
+                //     '<'
+                // )
                 .from(
                     overlayRef.current.children[1],
                     {
