@@ -114,7 +114,7 @@ export default function About() {
 
             <div className="container flex flex-col py-10 lg:py-20">
                 <div className="flex w-full">
-                    <h3 ref={titleRef} className="">
+                    <h3 ref={titleRef} className="font-black">
                         From Concept to Code:{' '}
                         <span className="text-teal-400">My Journey</span>
                     </h3>

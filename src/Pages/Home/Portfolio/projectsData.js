@@ -35,7 +35,7 @@ const quizzical = new Project(
     'State Management / API Fetching',
     ['HTML', 'CSS', 'JS', 'React'],
     'QUIZZICAL is a trivia app that fetches questions from the Open Trivia Database API. This is a learnining-focused project and is part of the Frontend Developer Career Path on Scrimba.',
-    '/imgs/quizzical.jpeg',
+    '/imgs/quizzical2.jpeg',
     'https://github.com/Jonserafim7/SoloProject-Quizzical',
     ''
 )
@@ -50,7 +50,7 @@ const movieWachlist = new Project(
     'Local Storage / Data fetching',
     ['HTML', 'CSS', 'JS', 'React'],
     'MOVIE WATCHLIST is a website for people to add movies to their watchlist. This is a learnining-focused project and is part of the Frontend Developer Career Path on Scrimba.',
-    '/imgs/movie-list.jpeg',
+    '/imgs/movie-list2.jpg',
     '',
     ''
 )
@@ -65,7 +65,7 @@ const airbnbClone = new Project(
     'React props / Reusable components',
     ['HTML', 'CSS', 'JS', 'React'],
     'AIRBNB CLONE is a website that mimics the Airbnb website. This is a learnining-focused project and is part of the Frontend Developer Career Path on Scrimba.',
-    '/imgs/airbnb.jpeg',
+    '/imgs/airbnb2.jpg',
     'https://github.com/Jonserafim7/AirBnb-clone',
     ''
 )
@@ -80,7 +80,7 @@ const addToCart = new Project(
     'Real-Time Data Handling',
     ['HTML', 'CSS', 'JavaScript', 'Firebase'],
     'Add to Cart is a real-time shopping list application that allows users to add, display, and remove items from a list. Built using HTML, CSS, JavaScript, and Firebase, this project demonstrates dynamic data management with a modern web stack.',
-    '/imgs/add-to-cart.jpeg',
+    '/imgs/add-to-cart3.jpg',
     'https://github.com/Jonserafim7/Add-to-Cart---Shopping-List-App',
     'https://shopping-cart-jonas.netlify.app/'
 )
@@ -95,7 +95,7 @@ const blackjackGame = new Project(
     'Interactive Game Development',
     ['HTML', 'CSS', 'JavaScript'],
     'A simple web-based Blackjack game to practice DOM manipulation, event handling, and game logic implementation using HTML, CSS, and JavaScript. Key learnings include dynamic content updates, user interaction management, and conditional logic for game states.',
-    '/imgs/blackjack.jpeg',
+    '/imgs/blackjack2.jpg',
     'https://github.com/Jonserafim7/Blackjack-Game',
     'https://black-jack-jonas.netlify.app/'
 )
@@ -110,7 +110,7 @@ const passwordGenerator = new Project(
     'Customizable Secure Passwords',
     ['HTML', 'CSS', 'JavaScript'],
     'A web-based application to generate secure, random passwords with customizable preferences. Key takeaways include DOM manipulation, event handling, form input synchronization, random character generation, conditional logic, and responsive CSS styling.',
-    '/imgs/passwrod-generator.jpeg', // Ensure this path is correct and the image is available
+    '/imgs/passwrod-generator2.jpg', // Ensure this path is correct and the image is available
     'https://github.com/Jonserafim7/Random-Password-Generator',
     'https://random-password-jonas.netlify.app/'
 )
@@ -125,7 +125,7 @@ const unitConverter = new Project(
     'Unit Conversion',
     ['HTML', 'CSS', 'JavaScript'],
     'Metric/Imperial Unit Conversion is a web-based tool that allows users to convert units between metric and imperial systems. The application supports conversions for length (meters/feet), volume (liters/gallons), and mass (kilograms/pounds). Key takeaways include DOM manipulation, event handling, and unit conversion logic using JavaScript.',
-    '/imgs/unit-converter.jpeg', // Ensure this path is correct and the image is available
+    '/imgs/unit-converter2.jpg', // Ensure this path is correct and the image is available
     'https://github.com/Jonserafim7/Imperial-Metric-Unit-Converter',
     'https://imperial-unit-converter-jonas.netlify.app/'
 )
@@ -140,7 +140,7 @@ const cssFundamentals = new Project(
     'CSS Fundamentals',
     ['HTML', 'CSS'],
     'CSS Fundamentals is a personal portfolio webpage demonstrating essential CSS skills. It showcases responsive layout, typography styling, reusable utility classes, hover effects, and semantic HTML. Key takeaways include mastering basic CSS techniques for layout and styling.',
-    '/imgs/css-fundamentals.jpeg', // Ensure this path is correct and the image is available
+    '/imgs/css-fundamentals2.jpg', // Ensure this path is correct and the image is available
     'https://github.com/Jonserafim7/Css-fundamentals-chalenge',
     'https://css-fundamentals-one-jonas.netlify.app/'
 )
@@ -155,7 +155,7 @@ const memePicker = new Project(
     'Emotion-Based Meme Selection',
     ['HTML', 'CSS', 'JavaScript'],
     "Pumpkin's Purrfect Meme Picker is a web-based tool that lets users select their current emotion and receive a matching cat meme. Features include emotion selection, GIF filter, and random meme display. Key takeaways include DOM manipulation, event handling, and array methods using JavaScript.",
-    '/imgs/meme-picker.jpeg', // Ensure this path is correct and the image is available
+    '/imgs/meme-picker2.jpg', // Ensure this path is correct and the image is available
     'https://github.com/Jonserafim7/Meme-Picker',
     'https://meme-picker-jonas.netlify.app/'
 )
@@ -165,12 +165,12 @@ projectsData.push(memePicker)
 
 // create new project
 const restaurantOrderingApp = new Project(
-    'Restaurant Ordering App',
+    'Restaurant App',
     'Web App',
     'Online Food Ordering System',
     ['HTML', 'CSS', 'JavaScript'],
     'Restaurant Ordering App is a web-based tool that allows users to browse a menu, add items to their cart, and complete an order with payment details. Key takeaways include DOM manipulation, event handling, and form processing using JavaScript.',
-    '/imgs/ordering-app.jpeg', // Ensure this path is correct and the image is available
+    '/imgs/ordering-app2.jpg', // Ensure this path is correct and the image is available
     'https://github.com/Jonserafim7/Restaurant-ordering-app',
     'https://restaurant-ordering-jonas.netlify.app/'
 )

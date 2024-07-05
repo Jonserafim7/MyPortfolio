@@ -126,7 +126,7 @@ const ProjectCard = React.forwardRef(
                     <h4 className="text-2xl/none font-medium">
                         {project.type}
                     </h4>
-                    <h5 className="dropshadow text-2xl font-medium text-teal-400">
+                    <h5 className="font-mont text-2xl font-bold text-teal-500 drop-shadow-md">
                         {project.scope}
                     </h5>
                     <div className="card-badges mt-2 flex w-max gap-2 overflow-hidden">
