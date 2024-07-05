@@ -3,7 +3,7 @@ import { useRef, useEffect } from 'react'
 import gsap from 'gsap'
 import { useGSAP } from '@gsap/react'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
-import SplitType from 'split-type'
+// import SplitType from 'split-type'
 import { ButtonWithIcon } from '@/components/ui/buttonWithIcon'
 
 // GSAP PLUGINS
@@ -19,8 +19,8 @@ export default function Contact() {
     // GSAP Animations
     useGSAP(
         () => {
-            const headingSplit = new SplitType(headingRef.current)
-            const paragraphSplit = new SplitType(paragraphRef.current)
+            // const headingSplit = new SplitType(headingRef.current)
+            // const paragraphSplit = new SplitType(paragraphRef.current)
 
             const tl = gsap.timeline({
                 scrollTrigger: {
@@ -36,13 +36,20 @@ export default function Contact() {
                 },
             })
 
-            tl.from(headingSplit.words, {
+            tl.from(headingRef.current.children[0], {
                 xPercent: 100,
                 opacity: 0,
-                stagger: 0.2,
             })
+            tl.from(
+                headingRef.current.children[1],
+                {
+                    xPercent: -100,
+                    opacity: 0,
+                },
+                '-=0.8'
+            )
                 .from(
-                    paragraphSplit.lines,
+                    paragraphRef.current,
                     {
                         yPercent: 100,
                         opacity: 0,
